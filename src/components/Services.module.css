@@ -1,0 +1,54 @@
+.services {
+  padding: 5rem 0;
+  background-color: #f7f8fc;
+}
+
+.services h2 {
+  margin-bottom: 3rem;
+  color: #1e2123;
+  font-size: 2.1rem;
+  text-align: center;
+}
+
+.service-list {
+  padding: 0 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.service-item {
+  background-color: white;
+  border: 1px solid #fbfcfc;
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.service-item h3 {
+  font-size: 1.3rem;
+  font-weight: 550;
+  color: #1e2123;
+}
+
+.service-item p {
+  font-size: 1.2rem;
+  align-self: self-start;
+}
+
+.icon {
+  font-size: 3.5rem;
+  color: #d0a2f7;
+}
+
+.service-btn {
+  border: none;
+  background-color: #d0a2f7;
+  padding: 8px 1.5rem;
+  color: white;
+  font-weight: 550;
+}

@@ -1,0 +1,18 @@
+.header {
+  background-color: #1381e2;
+  padding: 1rem 5rem;
+  color: #feffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  color: #9accf8;
+  font-weight: 600;
+  font-size: 1.2rem;
+}

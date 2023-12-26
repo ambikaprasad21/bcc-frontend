@@ -1,0 +1,9 @@
+.carousal {
+  overflow: hidden;
+  opacity: 0.8;
+}
+
+.carousal img {
+  width: 120%;
+  height: 85vh;
+}
