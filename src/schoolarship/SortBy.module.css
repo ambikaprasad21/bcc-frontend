@@ -1,0 +1,69 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+
+.sort-label {
+  font-size: 1.5rem;
+  font-weight: 550;
+}
+
+.sort-ways {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.sort-ways p {
+  background-color: var(--primary-color);
+  color: white;
+  letter-spacing: 1px;
+  padding: 1rem 1.5rem;
+  font-weight: 550;
+  font-size: 10px;
+  border-radius: 5px;
+}
+
+.search {
+  display: flex;
+  gap: 3rem;
+}
+
+.search-area {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+.search-area p {
+  font-size: 1.3rem;
+  font-weight: 550;
+}
+
+.find {
+  border: none;
+  background-color: var(--light-color);
+  padding: 1rem 1.5rem;
+  outline: none;
+  border-radius: 5px;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  cursor: pointer;
+}

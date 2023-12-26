@@ -42,7 +42,7 @@
 .form-contact-btn {
   margin-top: -1rem;
   border: none;
-  background-color: #d0a2f7;
+  background-color: var(--primary-color);
   padding: 8px 1.5rem;
   color: white;
   font-weight: 550;

@@ -3,11 +3,13 @@ function DashboardItems() {
   return (
     <div className={styles["dash-items"]}>
       <div className={styles["item-1"]}>
-        <img src="./../../images/uplogo.jpg" alt="up schoolarship" />
+        <div className={styles["dash-img"]}>
+          <img src="./../../images/uplogo.jpg" alt="up schoolarship" />
+        </div>
 
-        <div>
+        <div className={styles["item-text"]}>
           <p>UP SCHOOLARSHIP</p>
-          <p>Up Schoolarship Form Data</p>
+          <p>Up Schoolarship Form Filling Data</p>
         </div>
       </div>
     </div>

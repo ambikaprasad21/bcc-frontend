@@ -11,3 +11,10 @@ html {
 body {
   font-family: sans-serif;
 }
+
+:root {
+  --secondary-heading: #1e2123;
+  --primary-color: #65b741;
+  --light-color: #cdfad5;
+  --background-section-color: #f7f8fc;
+}

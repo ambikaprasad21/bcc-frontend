@@ -1,0 +1,14 @@
+.container {
+  background-color: var(--background-section-color);
+}
+
+.schoolarship {
+  height: 90dvh;
+  padding: 3rem 6rem;
+}
+
+.schoolarship-heading {
+  text-align: center;
+  padding-top: 5rem;
+  color: var(--secondary-heading);
+}

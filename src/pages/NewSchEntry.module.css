@@ -1,0 +1,76 @@
+.container {
+  height: 90dvh;
+  padding: 5rem 5rem;
+}
+
+.secondary-heading {
+  color: var(--secondary-heading);
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 1.5px;
+}
+
+.sch-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  column-gap: 4rem;
+  align-content: center;
+  justify-content: center;
+}
+
+.fields {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.fields-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.fields label {
+  font-size: 1.3rem;
+  font-weight: 550;
+  color: #61677a;
+}
+
+.fields input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  background-color: var(--light-color);
+}
+
+.create-sch-entry {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: var(--primary-color);
+  font-weight: 550;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 16rem;
+  bottom: -5rem;
+}
+
+/* .fields input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

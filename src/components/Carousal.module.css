@@ -2,8 +2,19 @@
   overflow: hidden;
   opacity: 0.8;
 }
+.carousel--img-div {
+  width: 100%;
+  height: 60rem;
+}
 
-.carousal img {
+.carousel--img-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*scale image while maintaining the aspect ratio*/
+  object-position: center;
+}
+
+/* .carousal img {
   width: 120%;
   height: 85vh;
-}
+} */

@@ -16,20 +16,40 @@ function Carousal() {
   return (
     <div className={styles.carousal}>
       <Slider {...settings}>
-        <div>
-          <img src="./../../images/carousal-4.jpg" alt="carousal-4" />
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/carousal-4.jpg"
+            alt="carousal-4"
+            className={styles["carousel-img"]}
+          />
         </div>
-        <div>
-          <img src="./../../images/carousal-6.jpg" alt="carousal-6" />
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/carousal-6.jpg"
+            alt="carousal-6"
+            className={styles["carousel-img"]}
+          />
         </div>
-        <div>
-          <img src="./../../images/carousal-3.jpg" alt="carousal-3" />
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/carousal-7.jpg"
+            alt="carousal-7"
+            className={styles["carousel-img"]}
+          />
         </div>
-        <div>
-          <img src="./../../images/carousal-5.jpg" alt="carousal-5" />
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/carousal-5.jpg"
+            alt="carousal-5"
+            className={styles["carousel-img"]}
+          />
         </div>
-        <div>
-          <img src="./../../images/carousal-2.jpg" alt="carousal-2" />
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/carousal-2.jpg"
+            alt="carousal-2"
+            className={styles["carousel-img"]}
+          />
         </div>
       </Slider>
     </div>

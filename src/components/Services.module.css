@@ -1,6 +1,6 @@
 .services {
   padding: 5rem 0;
-  background-color: #f7f8fc;
+  background-color: var(--background-section-color);
 }
 
 .services h2 {
@@ -42,12 +42,12 @@
 
 .icon {
   font-size: 3.5rem;
-  color: #d0a2f7;
+  color: var(--primary-color);
 }
 
 .service-btn {
   border: none;
-  background-color: #d0a2f7;
+  background-color: var(--primary-color);
   padding: 8px 1.5rem;
   color: white;
   font-weight: 550;

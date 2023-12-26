@@ -1,0 +1,47 @@
+.container {
+  background-color: #f7f8fc;
+  padding: 5rem 4rem;
+}
+
+.repair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.repair-p {
+  color: #93a0ac;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 520;
+}
+
+.repair h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+  justify-content: center;
+  color: #515b62;
+  font-weight: 550;
+  font-size: 1.5rem;
+}
+
+.connect-btn {
+  border: none;
+  outline: none;
+  padding: 1rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 550;
+}
+
+.phone {
+  color: #279eff;
+}
