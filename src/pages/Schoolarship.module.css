@@ -5,10 +5,24 @@
 .schoolarship {
   height: 90dvh;
   padding: 3rem 6rem;
+  position: relative;
 }
 
 .schoolarship-heading {
   text-align: center;
   padding-top: 5rem;
   color: var(--secondary-heading);
+}
+
+.btn-create {
+  position: absolute;
+  right: 5.9rem;
+  top: 10rem;
+  border: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 550;
 }

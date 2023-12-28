@@ -22,8 +22,7 @@
 .form-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 2rem;
-  column-gap: 4rem;
+  column-gap: 6rem;
   align-content: center;
   justify-content: center;
 }
@@ -38,23 +37,36 @@
 .fields-flex {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  width: 41rem; /* Set the desired width for the form container */
 }
 
-.fields label {
+.formRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem; /* Set the desired margin between rows */
+}
+
+.formRow label {
+  flex: 1.2; /* Make the label take up available space */
+  margin-right: 2rem; /* Set the desired margin between label and input */
   font-size: 1.3rem;
   font-weight: 550;
   color: #61677a;
 }
 
-.fields input {
+.input {
+  flex: 2;
+  padding: 1rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 5px;
-  padding: 1rem 1.5rem;
   background-color: var(--light-color);
 }
 
+.payment label,
+input {
+  align-items: flex-start;
+}
 .create-sch-entry {
   border: none;
   outline: none;
@@ -68,9 +80,3 @@
   right: 16rem;
   bottom: -5rem;
 }
-
-/* .fields input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */

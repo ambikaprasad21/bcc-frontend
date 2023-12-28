@@ -1,0 +1,14 @@
+/* Increase the width of the dropdown */
+.react-datepicker__year-dropdown-container,
+.react-datepicker__month-dropdown-container,
+.react-datepicker__day-dropdown-container {
+  width: 200px; /* Adjust the width as needed */
+}
+
+/* Increase the height of the dropdown items */
+.react-datepicker__year-dropdown,
+.react-datepicker__month-dropdown,
+.react-datepicker__day-dropdown {
+  max-height: 200px; /* Adjust the max-height as needed */
+  overflow-y: auto;
+}
