@@ -8,18 +8,7 @@ import Spinner from "../components/Spinner";
 
 function NewSchEntry() {
   const navigate = useNavigate();
-  const [date, setDate] = useState(new Date());
-  const [dob, setDob] = useState(new Date());
-  const [type, setType] = useState("Fresh");
-  const [division, setDivision] = useState("Prematric");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const [regno, setRegno] = useState("");
-
-  const [payment, setPayment] = useState(false);
-  const [amount, setAmount] = useState("");
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -29,18 +18,6 @@ function NewSchEntry() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(
-    //   firstName,
-    //   lastName,
-    //   date,
-    //   dob,
-    //   type,
-    //   division,
-    //   phone,
-    //   password,
-    //   payment,
-    //   regno
-    // );
 
     try {
       setIsLoading(true);

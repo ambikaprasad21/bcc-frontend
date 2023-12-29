@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import styles from "./DataTable.module.css";
 import { useSch } from "../context/SchContext";
 import Spinner from "../components/Spinner";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
+library.add(fab, faPenToSquare, faTrashCan);
+
 function DataTable() {
   const [data, setData] = useState({
     // heading: "Data table",
@@ -36,7 +44,7 @@ function DataTable() {
     //   },
     // ],
   });
-  const { schData } = useSch();
+  const { schData, isLoading, deleteEntry } = useSch();
 
   // useEffect(() => {
   //   getSchData();
@@ -53,6 +61,7 @@ function DataTable() {
     return formatedDate;
   }
   // if (!schData) return <Spinner />;
+  if (isLoading) return <Spinner />;
   return (
     <div className={styles.container}>
       <h2>{schData.heading}</h2>
@@ -71,6 +80,8 @@ function DataTable() {
               <th>Money</th>
               <th>Payment</th>
               <th>Password</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
         ) : (
@@ -94,6 +105,22 @@ function DataTable() {
               <td>{item.charge}</td>
               <td>{item.paid ? "Yes" : "No"}</td>
               <td>{item.password}</td>
+              <td className={styles["operation"]}>
+                <FontAwesomeIcon icon={faPenToSquare} className={styles.edit} />
+              </td>
+              <td
+                className={styles["operation"]}
+                onClick={() => deleteEntry(item._id)}
+              >
+                {isLoading ? (
+                  <Spinner />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faTrashCan}
+                    className={styles.delete}
+                  />
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

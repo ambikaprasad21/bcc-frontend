@@ -10,9 +10,12 @@ import { useSch } from "../context/SchContext";
 import { useState } from "react";
 function SortBy() {
   const { getSortedData, searchByName, searshByRegno } = useSch();
-
   const [name, setName] = useState("");
   const [regno, setRegno] = useState("");
+
+  function capitalizeWords(str) {
+    return str.replace(/\b\w/g, (match) => match.toUpperCase());
+  }
   return (
     <div className={styles.container}>
       <div className={styles.sort}>
@@ -33,11 +36,11 @@ function SortBy() {
               className={styles["find"]}
               value={name}
               onChange={(e) => {
-                const lowercaseValue = e.target.value
-                  ? e.target.value.toLocaleLowerCase()
-                  : "";
-                console.log(lowercaseValue);
-                setName(lowercaseValue);
+                // const lowercaseValue = e.target.value
+                //   ? e.target.value.toLocaleLowerCase()
+                //   : "";
+                // console.log(lowercaseValue);
+                setName(capitalizeWords(e.target.value));
               }}
             />
             <FontAwesomeIcon

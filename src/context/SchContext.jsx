@@ -94,6 +94,35 @@ function SchProvider({ children }) {
     }
   }
 
+  async function deleteEntry(id) {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this entry?"
+    );
+    if (confirmDelete) {
+      try {
+        setIsLoading(true);
+        await fetch(`${BASE_URL}/schoolarship/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        });
+        console.log(typeof schData);
+
+        setSchData((prevData) => {
+          const updatedData = prevData.doc.filter((entry) => entry._id !== id);
+          return { ...prevData, doc: updatedData };
+        });
+        console.log("entry deleted");
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }
+
   return (
     <SchContext.Provider
       value={{
@@ -103,6 +132,7 @@ function SchProvider({ children }) {
         isLoading,
         searchByName,
         searshByRegno,
+        deleteEntry,
       }}
     >
       {children}
