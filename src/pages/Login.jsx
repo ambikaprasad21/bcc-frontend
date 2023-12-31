@@ -92,9 +92,10 @@ function Login() {
         </div>
         <div className={styles["login-data"]}>
           <div className={styles["login-form"]}>
-            <p className={styles.heading}>Welcome To BCC </p>
             <form onSubmit={handleLogin}>
               <div className={styles["form-fields"]}>
+                <p className={styles.heading}>Welcome To BCC </p>
+
                 <input
                   type="text"
                   required
@@ -103,6 +104,7 @@ function Login() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
+
                 <input
                   type={see ? "text" : "password"}
                   required
@@ -111,6 +113,7 @@ function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
+
                 {loading ? (
                   <Spinner />
                 ) : (
@@ -119,7 +122,6 @@ function Login() {
                     <FontAwesomeIcon icon={faArrowRight} />
                   </button>
                 )}
-
                 <div onClick={handleSee} className={styles["fa-icon"]}>
                   {see ? (
                     <FontAwesomeIcon icon={faEye} />

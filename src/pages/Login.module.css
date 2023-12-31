@@ -1,5 +1,5 @@
 .container {
-  height: 90dvh;
+  height: 90vh;
 }
 
 .login-flex {
@@ -9,7 +9,7 @@
 
 .login-img {
   width: 90%;
-  height: 90dvh;
+  height: 90vh;
 }
 
 .login-img img {
@@ -58,7 +58,60 @@
 
 .fa-icon {
   position: absolute;
-  top: 51%;
+  top: 64%;
   right: 2%;
   transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+@media (max-width: 816px) {
+  .login-img {
+    width: 100%;
+  }
+  .login-img img {
+    clip-path: none;
+  }
+
+  .login-flex {
+    position: relative;
+  }
+
+  .login-data {
+    padding: 2rem 4rem;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+  }
+
+  .login-data::after {
+    content: "";
+    background-color: white;
+    border-radius: 5px;
+    width: 10rem;
+    height: 10rem;
+    padding: 10rem;
+    padding: 8rem 12rem;
+    position: absolute;
+    left: 1;
+    opacity: 0.6;
+  }
+
+  /* .login-form {
+    opacity: 1;
+  } */
+
+  .form-fields {
+    z-index: 10;
+    width: 25rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .fa-icon {
+    top: 64%;
+  }
 }
