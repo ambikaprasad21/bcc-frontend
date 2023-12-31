@@ -45,3 +45,9 @@
 .phone {
   color: #279eff;
 }
+
+@media (max-width: 340px) {
+  .repair h2 {
+    font-size: 1.7rem;
+  }
+}

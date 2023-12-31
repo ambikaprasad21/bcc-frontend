@@ -14,6 +14,24 @@
   object-position: center;
 }
 
+@media (max-width: 881px) {
+  .carousel--img-div {
+    height: 40rem;
+  }
+}
+
+@media (max-width: 636px) {
+  .carousel--img-div {
+    height: 40rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .carousel--img-div {
+    height: 28rem;
+  }
+}
+
 /* .carousal img {
   width: 120%;
   height: 85vh;

@@ -69,3 +69,41 @@
   font-size: 1.5rem;
   font-weight: 500;
 }
+
+@media (max-width: 881px) {
+  .fixed-bg-img {
+    height: 35rem;
+  }
+
+  .more {
+    padding: 2rem 3rem;
+
+    opacity: 0.9;
+    width: 45%;
+
+    top: 50%;
+    right: -25%;
+  }
+}
+
+@media (max-width: 791px) {
+  .more {
+    padding: 1.5rem 2rem;
+
+    width: 65%;
+
+    top: 50%;
+    right: -33%;
+  }
+}
+
+@media (max-width: 321px) {
+  .fixed-bg-img {
+    height: 35rem;
+  }
+  .more {
+    padding: 1.5rem 4rem 1.5rem 1rem;
+    width: 85%;
+    right: -55%;
+  }
+}

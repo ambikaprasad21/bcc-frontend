@@ -18,3 +18,15 @@ body {
   --light-color: #cdfad5;
   --background-section-color: #f7f8fc;
 }
+
+@media (max-width: 791px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 426px) {
+  html {
+    font-size: 55%;
+  }
+}

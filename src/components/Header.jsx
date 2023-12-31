@@ -8,20 +8,41 @@ library.add(fab, faArrowRightToBracket);
 import styles from "./Header.module.css";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { useAuth } from "../context/authContext";
+import { useState } from "react";
 
 function Header() {
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isAuthenticated, setIsAuthenticated, setContactForm } = useAuth();
+  // const [clicked, setClicked] = useState(false);
 
   const handleLogout = () => {
     setIsAuthenticated(false);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen((isMenuOpen) => !isMenuOpen);
+  };
+
   return (
     <div className={styles.header}>
       <Logo />
-      <nav className={styles.navbar}>
-        <p>HOME</p>
+      <nav
+        className={`${styles.menu} ${
+          isMenuOpen ? styles.active : styles.deactivate
+        }`}
+        onClick={closeMenu}
+      >
+        <p>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            HOME
+          </Link>
+        </p>
         <p>
           <Link
             to="/new/job"
@@ -30,8 +51,45 @@ function Header() {
             JOBS
           </Link>
         </p>
-        <p>SERVICE</p>
-        <p>CONTACT US</p>
+        <p>
+          <ScrollLink
+            activeClass="active"
+            to="service"
+            spy={true}
+            smooth={true}
+            offset={20}
+            duration={500}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              cursor: "pointer",
+            }}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            SERVICES
+          </ScrollLink>
+        </p>
+        <p>
+          <ScrollLink
+            activeClass="active"
+            to="contact"
+            spy={true}
+            smooth={true}
+            offset={-1}
+            duration={500}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              setIsMenuOpen(false);
+              setContactForm(true);
+            }}
+          >
+            CONTACT US
+          </ScrollLink>
+        </p>
         {isAuthenticated ? (
           <p>
             <Link
@@ -64,6 +122,9 @@ function Header() {
           </p>
         )}
       </nav>
+      <div className={styles["mobile"]} onClick={toggleMenu}>
+        <i id="bar" className={isMenuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+      </div>
     </div>
   );
 }

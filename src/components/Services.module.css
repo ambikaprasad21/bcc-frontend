@@ -46,10 +46,37 @@
   color: var(--primary-color);
 }
 
-.service-btn {
-  border: none;
-  background-color: var(--primary-color);
-  padding: 8px 1.5rem;
-  color: white;
-  font-weight: 550;
+@media (max-width: 881px) {
+  .service-list {
+    padding: 0 1rem;
+    gap: 1.5rem;
+    width: 95%;
+  }
+
+  .service-item {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .services {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 791px) {
+  .service-list {
+    gap: 1rem;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .service-item {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .service-list {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 2rem;
+  }
 }

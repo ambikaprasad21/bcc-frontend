@@ -4,6 +4,7 @@
   display: flex;
   gap: 10rem;
   color: #e7f5fb;
+  position: relative;
 }
 
 .address h2 {
@@ -52,4 +53,62 @@
   color: white;
   font-weight: 550;
   cursor: pointer;
+}
+
+@media (max-width: 881px) {
+  .footer {
+    padding: 4rem 3rem;
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 715px) {
+  .address-item p:first-child {
+    font-weight: 550;
+  }
+
+  .address-item p:last-child {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .address h2 {
+    font-size: 1.5rem;
+  }
+
+  .footer {
+    padding: 4rem 2rem;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 636px) {
+  .address {
+    position: absolute;
+    top: 15rem;
+  }
+  .footer {
+    gap: 17rem;
+  }
+}
+
+@media (max-width: 561px) {
+  .contact {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .footer {
+    flex-direction: column;
+    gap: 28rem;
+  }
+
+  .address {
+    top: 13rem;
+  }
+
+  .contact {
+    width: 28rem;
+  }
 }

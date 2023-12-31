@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useRef } from "react";
 import Copyright from "./Copyright";
@@ -6,14 +6,22 @@ import styles from "./Footer.module.css";
 import { ToastContainer, toast } from "react-toastify";
 import Logo from "./Logo";
 import Spinner from "./Spinner";
+import { useAuth } from "../context/authContext";
 
 function Footer() {
   const form = useRef();
+  const { contactForm } = useAuth();
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    if (contactForm) {
+      form.current?.querySelector("input")?.focus();
+    }
+  }, []);
 
   const handleMesgLength = (e) => {
     if (e.target.value.length <= 1000) {
@@ -89,7 +97,9 @@ function Footer() {
   return (
     <>
       <div className={styles.footer}>
-        <Logo />
+        <div>
+          <Logo />
+        </div>
         <div className={styles["address"]}>
           <h2>Computer Center Address</h2>
           <div className={styles["address-item"]}>
@@ -107,7 +117,8 @@ function Footer() {
         </div>
         <div className={styles.contact}>
           <h2>Contact Us</h2>
-          <form ref={form} onSubmit={handleSubmit}>
+          <form ref={form} onSubmit={handleSubmit} id="contact">
+            {console.log()}
             <input
               type="text"
               placeholder="name"
