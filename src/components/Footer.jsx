@@ -34,13 +34,16 @@ function Footer() {
     try {
       setIsLoading(true);
       setError("");
-      const res = await fetch("http://127.0.0.1:3000/api/v1/notification", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const res = await fetch(
+        "https://bccbackend.onrender.com/api/v1/notification",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
 
       if (!res.ok) {
         setError("Email Already Used, Try with different email");

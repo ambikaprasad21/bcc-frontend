@@ -3,7 +3,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 const BreakNewsContext = createContext();
 
-const BASE_URL = "http://127.0.0.1:3000/api/v1/breaking/news";
+// const BASE_URL = "http://127.0.0.1:3000/api/v1/breaking/news";
+const BASE_URL = "https://bccbackend.onrender.com/api/v1/breaking/news";
 function BreakNewsProvider({ children }) {
   const [breakNews, setBreakingNews] = useState([]);
 

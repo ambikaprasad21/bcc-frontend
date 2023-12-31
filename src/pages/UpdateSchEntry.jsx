@@ -24,7 +24,7 @@ function UpdateSchEntry() {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `http://127.0.0.1:3000/api/v1/schoolarship/getEntryByRegno/${regno}`,
+          `https://bccbackend.onrender.com/api/v1/schoolarship/getEntryByRegno/${regno}`,
           {
             credentials: "include",
             method: "GET",
@@ -80,7 +80,7 @@ function UpdateSchEntry() {
       setIsLoading(true);
       console.log(data);
       const res = await fetch(
-        `http://127.0.0.1:3000/api/v1/schoolarship/${data._id}`,
+        `https://bccbackend.onrender.com/api/v1/schoolarship/${data._id}`,
         {
           method: "PATCH",
           credentials: "include",
