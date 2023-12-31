@@ -8,6 +8,7 @@ const BASE_URL = "http://127.0.0.1:3000/api/v1";
 function SchProvider({ children }) {
   const [schData, setSchData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function getSchData() {
     try {
@@ -19,6 +20,12 @@ function SchProvider({ children }) {
         },
         credentials: "include",
       });
+
+      if (!res.ok) {
+        setError("There was some Error Getting Data. Please Try again");
+        setIsLoading(false);
+        return;
+      }
 
       const data = await res.json();
       setSchData(data.data);
@@ -108,7 +115,6 @@ function SchProvider({ children }) {
           },
           credentials: "include",
         });
-        console.log(typeof schData);
 
         setSchData((prevData) => {
           const updatedData = prevData.doc.filter((entry) => entry._id !== id);
@@ -130,6 +136,7 @@ function SchProvider({ children }) {
         getSchData,
         getSortedData,
         isLoading,
+        error,
         searchByName,
         searshByRegno,
         deleteEntry,

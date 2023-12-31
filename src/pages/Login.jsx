@@ -74,7 +74,7 @@ function Login() {
   useEffect(
     function () {
       if (isAuthenticated) {
-        navigate("/admin/dashboard", { replace: true });
+        navigate("/admin/dashboard?loginSuccess=true", { replace: true });
         //using the replace as true we are manupulating the history stack
       }
     },

@@ -1,0 +1,56 @@
+.new-news {
+  position: relative;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: #fa9884;
+  font-weight: 550;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.create {
+  background-color: var(--primary-color);
+}
+
+.cancel {
+  position: absolute;
+  bottom: 0;
+  left: 33rem;
+}
+
+.container {
+  padding: 5rem 4rem;
+  height: 80dvh;
+}
+
+.container h2 {
+  margin-bottom: 2rem;
+}
+
+.data {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.label {
+  font-size: 1.3rem;
+  font-weight: 550;
+  color: #61677a;
+}
+
+.input {
+  padding: 1rem 1.5rem;
+}
+
+.operation {
+  display: flex;
+  gap: 2rem;
+}

@@ -1,0 +1,59 @@
+.container {
+  height: 90dvh;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 3rem;
+}
+
+.notifi-item {
+  padding: 5rem 4rem;
+  width: 50%;
+}
+
+.heading {
+  margin-bottom: 3rem;
+}
+
+.header {
+  padding: 2rem 3rem;
+  background-color: #eef5ff;
+}
+
+.message {
+  padding: 2rem 3rem;
+  background-color: #b4d4ff;
+}
+
+.header p:first-child {
+  margin-bottom: 1rem;
+}
+
+.header p {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.label {
+  font-size: 1.5rem;
+  font-weight: 550;
+}
+
+.loader {
+  width: 50%;
+  margin: 5rem auto;
+}
+
+.message p {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.value {
+  font-size: 1.3rem;
+}

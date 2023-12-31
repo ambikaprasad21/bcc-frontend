@@ -39,6 +39,11 @@
   border-radius: 2px;
 }
 
+.form-contact-input:focus {
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(237, 240, 243, 0.895);
+}
+
 .form-contact-btn {
   margin-top: -1rem;
   border: none;
@@ -46,4 +51,5 @@
   padding: 8px 1.5rem;
   color: white;
   font-weight: 550;
+  cursor: pointer;
 }

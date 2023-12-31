@@ -2,3 +2,9 @@
   height: 90dvh;
   padding: 3rem 6rem;
 }
+
+.heading {
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}

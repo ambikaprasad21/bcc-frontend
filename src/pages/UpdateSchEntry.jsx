@@ -1,51 +1,101 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "./NewSchEntry.module.css";
 
 import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
+import Cancelbtn from "../components/Cancelbtn";
 
-function NewSchEntry() {
+function UpdateSchEntry() {
+  const { regno } = useParams();
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
+  const [updatedData, setUpdatedData] = useState({});
+  const [startDate, setStartDate] = useState(new Date());
+  const [dob, setDob] = useState(new Date());
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function getEntry() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(
+          `http://127.0.0.1:3000/api/v1/schoolarship/getEntryByRegno/${regno}`,
+          {
+            credentials: "include",
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!res.ok) {
+          setError("Unable to get data try again");
+        }
+        const resData = await res.json();
+        console.log(resData.data.doc[0]);
+        setData(resData.data.doc[0]);
+        setFirstName(resData.data.doc[0].firstname);
+        setLastName(resData.data.doc[0].lastname);
+        setStartDate(new Date(resData.data.doc[0].date));
+        setDob(new Date(resData.data.doc[0].DOB));
+      } catch (err) {
+        console.log(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    getEntry();
+  }, [regno]);
 
   function capitalizeWords(str) {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
   }
+
+  const handleInputChange = (e) => {
+    let { name, value } = e.target;
+    if (name === "firstname" || name === "lastname") {
+      value = capitalizeWords(value);
+    }
+    // console.log(name, value);
+    setData((data) => ({ ...data, [name]: value }));
+    setUpdatedData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
+    setData((data) => ({ ...data, [name]: checked }));
+    setUpdatedData((prevData) => ({ ...prevData, [name]: checked }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       setIsLoading(true);
-      const res = await fetch("http://127.0.0.1:3000/api/v1/schoolarship", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          firstname: firstName,
-          lastname: lastName,
-          registrationNo: regno,
-          type,
-          paid: payment,
-          charge: amount,
-          date,
-          DOB: dob,
-          class: division,
-          phone,
-          password,
-        }),
-      });
+      console.log(data);
+      const res = await fetch(
+        `http://127.0.0.1:3000/api/v1/schoolarship/${data._id}`,
+        {
+          method: "PATCH",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ ...updatedData, date: startDate, DOB: dob }),
+        }
+      );
+      console.log(updatedData);
       if (!res.ok) {
         setError("There is some error uploading data try again");
       } else {
         navigate("/admin/dashboard/schoolarship");
-        console.log("Schoolarship Entry created");
+        console.log("Schoolarship Entry updated");
       }
     } catch (err) {
       console.log(err);
@@ -57,7 +107,7 @@ function NewSchEntry() {
   return (
     <div className={styles.container}>
       <h2 className={styles["secondary-heading"]}>
-        NEW SCHOOLARSHIP FORM DATA
+        {`UPDATE DATA FOR NAME: ${firstname} ${lastname} , REG.NO: ${regno}`}
       </h2>
       <div className={styles["sch-form"]}>
         <form onSubmit={handleSubmit}>
@@ -68,42 +118,40 @@ function NewSchEntry() {
                 <input
                   type="text"
                   required
+                  name="firstname"
                   className={styles.input}
-                  value={firstName}
-                  onChange={(e) => {
-                    const capitalizedFullName = capitalizeWords(e.target.value);
-                    setFirstName(capitalizedFullName);
-                  }}
+                  value={data.firstname}
+                  onChange={(e) => handleInputChange(e)}
                 />
               </div>
               <div className={styles.formRow}>
                 <label>Renewal/Fresh:</label>
                 <select
-                  value={type}
+                  value={data.type}
                   required
-                  onChange={(e) => setType(e.target.value)}
+                  name="type"
+                  onChange={(e) => handleInputChange(e)}
                   className={styles.input}
                 >
                   <option value={"Fresh"}>Fresh</option>
                   <option value={"Renewal"}>Renewal</option>
                 </select>
               </div>
-              <div className={styles.formRow}>
-                <label>Date of Birth:</label>
-                {/* <input type="text" className={styles.input} /> */}
-                <SelectDate startDate={date} setStartDate={setDate} />
-              </div>
+
               <div className={styles.formRow}>
                 <label>Amount:</label>
                 <input
                   type="text"
                   required
+                  name="charge"
                   className={styles.input}
-                  value={amount}
-                  onChange={(e) => {
-                    setAmount(e.target.value);
-                  }}
+                  value={data.charge}
+                  onChange={(e) => handleInputChange(e)}
                 />
+              </div>
+              <div className={styles.formRow}>
+                <label>Date of Birth:</label>
+                <SelectDate startDate={dob} setStartDate={setDob} />
               </div>
             </div>
             <div className={styles["fields-flex"]}>
@@ -112,20 +160,19 @@ function NewSchEntry() {
                 <input
                   type="text"
                   required
+                  name="lastname"
                   className={styles.input}
-                  value={lastName}
-                  onChange={(e) => {
-                    const capitalizedFullName = capitalizeWords(e.target.value);
-                    setLastName(capitalizedFullName);
-                  }}
+                  value={data.lastname}
+                  onChange={(e) => handleInputChange(e)}
                 />
               </div>
               <div className={styles.formRow}>
                 <label>Class:</label>
                 <select
-                  value={division}
+                  value={data.class}
                   required
-                  onChange={(e) => setDivision(e.target.value)}
+                  name="class"
+                  onChange={(e) => handleInputChange(e)}
                   className={styles.input}
                 >
                   <option value={"Prematric"}>Prematric</option>
@@ -143,21 +190,15 @@ function NewSchEntry() {
                 <input
                   type="text"
                   required
+                  name="phone"
                   className={styles.input}
-                  value={phone}
-                  onChange={(e) => {
-                    setPhone(e.target.value);
-                  }}
+                  value={data.phone}
+                  onChange={(e) => handleInputChange(e)}
                 />
               </div>
-              <div className={`${styles.formRow} ${styles.payment}`}>
-                <label>Payment Completed</label>
-                <input
-                  type="checkbox"
-                  className={`${styles.input} ${styles.checkbox}`}
-                  value={payment}
-                  onChange={(e) => setPayment(e.target.value)}
-                />
+              <div className={styles.formRow}>
+                <label>Date:</label>
+                <SelectDate startDate={startDate} setStartDate={setStartDate} />
               </div>
             </div>
             <div className={styles["fields-flex"]}>
@@ -166,25 +207,31 @@ function NewSchEntry() {
                 <input
                   type="number"
                   required
+                  name="registrationNo"
                   className={styles.input}
-                  value={regno}
-                  onChange={(e) => setRegno(e.target.value)}
+                  value={data.registrationNo}
+                  onChange={(e) => handleInputChange(e)}
                 />
               </div>
-              <div className={styles.formRow}>
-                <label>Date:</label>
-                {/* <input type="text" className={styles.input} /> */}
-                <SelectDate startDate={dob} setStartDate={setDob} />
-              </div>
+
               <div className={styles.formRow}>
                 <label>Password:</label>
                 <input
                   type="text"
+                  name="password"
                   className={styles.input}
-                  value={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
+                  value={data.password}
+                  onChange={(e) => handleInputChange(e)}
+                />
+              </div>
+              <div className={`${styles.formRow} ${styles.payment}`}>
+                <label>Payment Completed</label>
+                <input
+                  type="checkbox"
+                  name="paid"
+                  className={`${styles.input} ${styles.checkbox}`}
+                  checked={data.paid || false}
+                  onChange={(e) => handleCheckboxChange(e)}
                 />
               </div>
             </div>
@@ -193,7 +240,10 @@ function NewSchEntry() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <button className={styles["create-sch-entry"]}>Create</button>
+            <>
+              <Cancelbtn />
+              <button className={styles["create-sch-entry"]}>Update</button>
+            </>
           )}
         </form>
       </div>
@@ -202,4 +252,4 @@ function NewSchEntry() {
   );
 }
 
-export default NewSchEntry;
+export default UpdateSchEntry;

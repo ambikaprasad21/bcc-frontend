@@ -1,0 +1,67 @@
+.container {
+  padding-top: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  height: 50dvh;
+}
+
+.heading-notifi {
+  margin: 4rem 0;
+  text-align: center;
+}
+
+.no-msg {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: lightsalmon;
+}
+
+.flex-table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  text-align: center;
+  justify-items: center;
+}
+
+.table-header {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.table-row {
+  padding: 1rem 2rem;
+  gap: 2rem;
+  border-bottom: 1px solid gray;
+}
+
+.delete {
+  color: red;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.loader {
+  width: 50%;
+  margin: 5rem auto;
+}
+
+.seen {
+  color: #176b87;
+  font-size: 1.3rem;
+  font-weight: 550;
+}
+
+.open {
+  color: #d71313;
+  font-size: 1.3rem;
+  font-weight: 550;
+}

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./DataTable.module.css";
 import { useSch } from "../context/SchContext";
 import Spinner from "../components/Spinner";
@@ -7,10 +8,12 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import getDate from "../utils/getDate";
 
 library.add(fab, faPenToSquare, faTrashCan);
 
 function DataTable() {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     // heading: "Data table",
     // doc: [
@@ -44,7 +47,7 @@ function DataTable() {
     //   },
     // ],
   });
-  const { schData, isLoading, deleteEntry } = useSch();
+  const { schData, isLoading, deleteEntry, error } = useSch();
 
   // useEffect(() => {
   //   getSchData();
@@ -52,16 +55,9 @@ function DataTable() {
 
   // console.log(schData);
 
-  function getDate(date) {
-    const apiDate = new Date(date);
-    const day = apiDate.getDate().toString().padStart(2, "0");
-    const month = (apiDate.getMonth() + 1).toString().padStart(2, "0");
-    const year = apiDate.getFullYear();
-    const formatedDate = `${day}-${month}-${year}`;
-    return formatedDate;
-  }
   // if (!schData) return <Spinner />;
   if (isLoading) return <Spinner />;
+  if (error) return <p>{error}</p>;
   return (
     <div className={styles.container}>
       <h2>{schData.heading}</h2>
@@ -74,8 +70,8 @@ function DataTable() {
               <th>Registration Number</th>
               <th>Renewal / Fresh</th>
               <th>Class</th>
-              <th>DOB</th>
               <th>Date</th>
+              <th>DOB</th>
               <th>Phone</th>
               <th>Money</th>
               <th>Payment</th>
@@ -92,20 +88,29 @@ function DataTable() {
           {schData.doc?.map((item, index) => (
             <tr
               key={item._id}
-              style={{ backgroundColor: index % 2 !== 0 ? "#CDFAD5" : "white" }}
+              style={{
+                backgroundColor: index % 2 !== 0 ? "#CDFAD5" : "white",
+              }}
             >
               <td>{index + 1}</td>
               <td>{`${item.firstname} ${item.lastname}`}</td>
               <td>{item.registrationNo}</td>
               <td>{item.type}</td>
               <td>{item.class}</td>
-              <td>{getDate(item.DOB)}</td>
               <td>{getDate(item.date)}</td>
+              <td>{getDate(item.DOB)}</td>
               <td>{item.phone}</td>
               <td>{item.charge}</td>
               <td>{item.paid ? "Yes" : "No"}</td>
               <td>{item.password}</td>
-              <td className={styles["operation"]}>
+              <td
+                className={styles["operation"]}
+                onClick={() =>
+                  navigate(
+                    `/admin/dashboard/edit/schoolarship/${item.registrationNo}`
+                  )
+                }
+              >
                 <FontAwesomeIcon icon={faPenToSquare} className={styles.edit} />
               </td>
               <td

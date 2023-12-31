@@ -5,6 +5,7 @@ import styles from "./NewSchEntry.module.css";
 
 import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
+import Cancelbtn from "../components/Cancelbtn";
 
 function NewSchEntry() {
   const navigate = useNavigate();
@@ -29,18 +30,6 @@ function NewSchEntry() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(
-    //   firstName,
-    //   lastName,
-    //   date,
-    //   dob,
-    //   type,
-    //   division,
-    //   phone,
-    //   password,
-    //   payment,
-    //   regno
-    // );
 
     try {
       setIsLoading(true);
@@ -71,7 +60,10 @@ function NewSchEntry() {
         console.log("Schoolarship Entry created");
       }
     } catch (err) {
-      console.log(err);
+      if (err.message) {
+        setError(err.message);
+      }
+      setError("Some Error Occured 🔥, Please Try Again");
     } finally {
       setIsLoading(false);
     }
@@ -103,7 +95,6 @@ function NewSchEntry() {
                 <label>Renewal/Fresh:</label>
                 <select
                   value={type}
-                  required
                   onChange={(e) => setType(e.target.value)}
                   className={styles.input}
                 >
@@ -111,11 +102,7 @@ function NewSchEntry() {
                   <option value={"Renewal"}>Renewal</option>
                 </select>
               </div>
-              <div className={styles.formRow}>
-                <label>Date of Birth:</label>
-                {/* <input type="text" className={styles.input} /> */}
-                <SelectDate startDate={date} setStartDate={setDate} />
-              </div>
+
               <div className={styles.formRow}>
                 <label>Amount:</label>
                 <input
@@ -127,6 +114,10 @@ function NewSchEntry() {
                     setAmount(e.target.value);
                   }}
                 />
+              </div>
+              <div className={styles.formRow}>
+                <label>Date of Birth:</label>
+                <SelectDate startDate={dob} setStartDate={setDob} />
               </div>
             </div>
             <div className={styles["fields-flex"]}>
@@ -147,7 +138,6 @@ function NewSchEntry() {
                 <label>Class:</label>
                 <select
                   value={division}
-                  required
                   onChange={(e) => setDivision(e.target.value)}
                   className={styles.input}
                 >
@@ -173,14 +163,9 @@ function NewSchEntry() {
                   }}
                 />
               </div>
-              <div className={`${styles.formRow} ${styles.payment}`}>
-                <label>Payment Completed</label>
-                <input
-                  type="checkbox"
-                  className={`${styles.input} ${styles.checkbox}`}
-                  value={payment}
-                  onChange={(e) => setPayment(e.target.value)}
-                />
+              <div className={styles.formRow}>
+                <label>Date:</label>
+                <SelectDate startDate={date} setStartDate={setDate} />
               </div>
             </div>
             <div className={styles["fields-flex"]}>
@@ -194,20 +179,27 @@ function NewSchEntry() {
                   onChange={(e) => setRegno(e.target.value)}
                 />
               </div>
-              <div className={styles.formRow}>
-                <label>Date:</label>
-                {/* <input type="text" className={styles.input} /> */}
-                <SelectDate startDate={dob} setStartDate={setDob} />
-              </div>
+
               <div className={styles.formRow}>
                 <label>Password:</label>
                 <input
                   type="text"
+                  required
                   className={styles.input}
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
+                />
+              </div>
+              <div className={`${styles.formRow} ${styles.payment}`}>
+                <label>Payment Completed</label>
+                <input
+                  type="checkbox"
+                  className={`${styles.input} ${styles.checkbox}`}
+                  value="payment"
+                  checked={payment}
+                  onChange={() => setPayment(!payment)}
                 />
               </div>
             </div>
@@ -216,10 +208,14 @@ function NewSchEntry() {
           {isLoading ? (
             <Spinner />
           ) : (
-            <button className={styles["create-sch-entry"]}>Create</button>
+            <>
+              <Cancelbtn />
+              <button className={styles["create-sch-entry"]}>Create</button>
+            </>
           )}
         </form>
       </div>
+
       {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );

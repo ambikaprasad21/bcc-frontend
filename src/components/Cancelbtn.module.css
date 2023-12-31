@@ -1,0 +1,14 @@
+.cancel-sch-entry {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 1rem 1.5rem;
+  color: white;
+  background-color: #fa9884;
+  font-weight: 550;
+  letter-spacing: 1px;
+  position: absolute;
+  right: 16rem;
+  bottom: -5rem;
+  cursor: pointer;
+}

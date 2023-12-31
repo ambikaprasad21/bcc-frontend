@@ -22,6 +22,14 @@ function Header() {
       <Logo />
       <nav className={styles.navbar}>
         <p>HOME</p>
+        <p>
+          <Link
+            to="/new/job"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            JOBS
+          </Link>
+        </p>
         <p>SERVICE</p>
         <p>CONTACT US</p>
         {isAuthenticated ? (
