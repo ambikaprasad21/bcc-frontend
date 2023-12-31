@@ -104,6 +104,16 @@
     gap: 28rem;
   }
 
+  .address-item p:first-child {
+    font-size: 1.1rem;
+    font-weight: 550;
+  }
+
+  .address-item p:last-child {
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
   .address {
     top: 13rem;
   }
