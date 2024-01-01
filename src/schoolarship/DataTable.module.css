@@ -36,3 +36,14 @@ th {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.sch-table {
+  width: 105rem;
+}
+
+@media (max-width: 1133px) {
+  .container {
+    overflow-x: scroll;
+    max-width: 100%;
+  }
+}

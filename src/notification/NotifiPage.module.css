@@ -1,12 +1,14 @@
 .container {
+  padding: 2rem 1rem 4rem 1rem;
   padding-top: 2rem;
-  width: 80%;
-  margin: 0 auto;
-  height: 50dvh;
+}
+
+.notifi-table {
+  width: 65rem;
 }
 
 .heading-notifi {
-  margin: 4rem 0;
+  margin-top: 4rem;
   text-align: center;
 }
 
@@ -64,4 +66,11 @@
   color: #d71313;
   font-size: 1.3rem;
   font-weight: 550;
+}
+
+@media (max-width: 623px) {
+  .scrollableTable {
+    overflow-x: scroll;
+    max-width: 100%;
+  }
 }

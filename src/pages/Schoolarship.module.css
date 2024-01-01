@@ -26,3 +26,9 @@
   font-size: 1.2rem;
   font-weight: 550;
 }
+
+@media (max-width: 1133px) {
+  .schoolarship {
+    padding: 3rem 2rem;
+  }
+}

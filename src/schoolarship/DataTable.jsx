@@ -61,7 +61,7 @@ function DataTable() {
   return (
     <div className={styles.container}>
       <h2>{schData.heading}</h2>
-      <table>
+      <table className={styles["sch-table"]}>
         {schData.doc ? (
           <thead>
             <tr>

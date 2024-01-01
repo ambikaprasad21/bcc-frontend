@@ -23,3 +23,9 @@
   text-align: center;
   padding-top: 3rem;
 }
+
+@media (max-width: 426px) {
+  .container {
+    padding: 5rem 3rem;
+  }
+}

@@ -11,6 +11,11 @@
 
 @media (max-width: 501px) {
   .tost-container {
-    width: 70%;
+    width: 50rem;
+  }
+
+  .admin {
+    padding: 3rem 3rem;
+    margin-bottom: 3rem;
   }
 }

@@ -35,3 +35,13 @@
   font-size: 1.5rem;
   line-height: 2rem;
 }
+
+@media (max-width: 769px) {
+  .item-text p:first-child {
+    font-size: 1.4rem;
+  }
+
+  .item-text p:last-child {
+    font-size: 1.3rem;
+  }
+}
