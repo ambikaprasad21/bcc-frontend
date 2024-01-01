@@ -8,3 +8,15 @@
   width: 75%;
   margin: 0 auto;
 }
+
+@media (max-width: 769px) {
+  .dash-items {
+    width: 100%;
+  }
+}
+
+@media (max-width: 426px) {
+  .dash-items {
+    grid-template-columns: 1fr;
+  }
+}

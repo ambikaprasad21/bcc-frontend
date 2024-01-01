@@ -13,6 +13,7 @@ function NotifiCard() {
     <Link
       to="/admin/dashboard/notifications"
       style={{ textDecoration: "none", color: "inherit" }}
+      className={styles["card"]}
     >
       <div className={styles["item-1"]}>
         <div className={styles["dash-img"]}>
@@ -23,8 +24,8 @@ function NotifiCard() {
           <p>BCC Notifications</p>
           <p>Message from contact us form</p>
         </div>
-        {open === 0 ? "" : <span className={styles["new-notifi"]}>{open}</span>}
       </div>
+      {open === 0 ? "" : <p className={styles["new-notifi"]}>{open}</p>}
     </Link>
   );
 }

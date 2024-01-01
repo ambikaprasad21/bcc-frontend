@@ -8,3 +8,9 @@
   padding-top: 4rem;
   padding-bottom: 3rem;
 }
+
+@media (max-width: 501px) {
+  .tost-container {
+    width: 70%;
+  }
+}

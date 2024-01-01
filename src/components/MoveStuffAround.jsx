@@ -2,7 +2,7 @@
 import styles from "./MoveStuffAround.module.css";
 
 function MoveStuffAround({ news }) {
-  if (news.length === 0) return "";
+  if (news.length === 0) return <p></p>;
   return (
     <div className={styles["breaking-news-ticker"]}>
       <div className={styles["ticker-content"]}>

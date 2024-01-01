@@ -7,6 +7,8 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-right: 2rem;
+}
+.card {
   position: relative;
 }
 
@@ -46,4 +48,21 @@
   top: 4rem;
   left: 10rem;
   border-radius: 50%;
+}
+
+@media (max-width: 769px) {
+  .new-notifi {
+    left: 5rem;
+    top: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .item-text p:first-child {
+    /* font-weight: 550; */
+    font-size: 1.5rem;
+  }
+
+  .item-text p:last-child {
+    font-size: 1rem;
+  }
 }
