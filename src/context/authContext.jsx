@@ -6,19 +6,12 @@ const AuthContext = createContext();
 function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [contactForm, setContactForm] = useState(false);
-  const [showToast, setShowToast] = useState(true);
-
-  function offToast() {
-    setShowToast(false);
-  }
 
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         setIsAuthenticated,
-        showToast,
-        offToast,
         contactForm,
         setContactForm,
       }}

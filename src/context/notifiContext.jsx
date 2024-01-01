@@ -94,6 +94,21 @@ function NotifiProvider({ children }) {
           setError("");
           return;
         } else {
+          toast.success("Deleted Successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            style: {
+              fontFamily: " sans-serif",
+              fontSize: "1.5rem",
+              fontWeight: 500,
+            },
+          });
           const updatedNotifi = notifi.filter((item) => item._id !== id);
           setNotifi(updatedNotifi);
         }

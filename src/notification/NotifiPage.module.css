@@ -4,7 +4,8 @@
 }
 
 .notifi-table {
-  width: 65rem;
+  width: 70rem;
+  margin: 0 auto;
 }
 
 .heading-notifi {
@@ -69,6 +70,9 @@
 }
 
 @media (max-width: 623px) {
+  .notifi-table {
+    width: 65rem;
+  }
   .scrollableTable {
     overflow-x: scroll;
     max-width: 100%;

@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import DashboardItems from "../components/DashboardItems";
 import styles from "./Admin.module.css";
 import { ToastContainer, toast } from "react-toastify";
-
 import { useSearchParams } from "react-router-dom";
 
 function Admin() {
   // const [showToastContainer, setShowToastContainer] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  // const [count, setCount] = useState(1);
 
   useEffect(() => {
     const loginSuccess = searchParams.get("loginSuccess");
@@ -29,15 +29,18 @@ function Admin() {
       });
     }
 
-    setSearchParams({});
-  }, [searchParams]);
+    // setCount((c) => c + 1);
+    // setSearchParams({});
+  }, []);
+
+  // console.log(count);
 
   return (
     <div className={styles.container}>
       <h2 className={styles["heading"]}>ADMIN DASHBOARD</h2>
       <div className={styles.admin}>
         <DashboardItems />
-        <ToastContainer className={styles["toast-container"]} />
+        <ToastContainer />
       </div>
     </div>
   );
