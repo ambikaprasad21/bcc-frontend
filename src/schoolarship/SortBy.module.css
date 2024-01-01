@@ -68,3 +68,74 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+@media (max-width: 1133px) {
+  .sort-label {
+    font-size: 1rem;
+    font-weight: 550;
+  }
+
+  .sort {
+    gap: 1rem;
+  }
+
+  .sort-ways {
+    gap: 5px;
+  }
+
+  .sort-ways p {
+    padding: 1rem 1rem;
+    font-weight: 500;
+    font-size: 10px;
+  }
+
+  .search {
+    gap: 1.5rem;
+  }
+
+  .search-area {
+    gap: 5px;
+  }
+  .search-area p {
+    font-size: 1rem;
+    font-weight: 550;
+  }
+}
+
+@media (max-width: 975px) {
+  .search {
+    flex-direction: column;
+  }
+
+  .container {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 668px) {
+  .sort-ways {
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .sort {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.3rem;
+  }
+}
+
+@media (max-width: 376px) {
+  .find {
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .sort-ways p {
+    padding: 1rem 1rem;
+    font-weight: 500;
+    font-size: 8px;
+  }
+}

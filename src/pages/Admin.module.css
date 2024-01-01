@@ -1,5 +1,9 @@
+.container {
+  margin-bottom: 2rem;
+}
+
 .admin {
-  height: 90dvh;
+  /* height: 90vh; */
   padding: 3rem 6rem;
 }
 

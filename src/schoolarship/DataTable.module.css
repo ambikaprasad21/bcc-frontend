@@ -38,12 +38,10 @@ th {
 }
 
 .sch-table {
-  width: 105rem;
+  width: 140rem;
 }
 
-@media (max-width: 1133px) {
-  .container {
-    overflow-x: scroll;
-    max-width: 100%;
-  }
+.container {
+  overflow-x: scroll;
+  max-width: 100%;
 }

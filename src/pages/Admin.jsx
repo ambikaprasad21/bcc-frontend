@@ -33,13 +33,13 @@ function Admin() {
   }, [searchParams]);
 
   return (
-    <>
+    <div className={styles.container}>
       <h2 className={styles["heading"]}>ADMIN DASHBOARD</h2>
       <div className={styles.admin}>
         <DashboardItems />
         <ToastContainer className={styles["toast-container"]} />
       </div>
-    </>
+    </div>
   );
 }
 

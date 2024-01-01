@@ -24,8 +24,19 @@
   padding-top: 3rem;
 }
 
+.table {
+  width: 40rem;
+}
+
+@media (max-width: 371px) {
+  .news-table {
+    overflow-x: scroll;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 426px) {
   .container {
-    padding: 5rem 3rem;
+    padding: 5rem 1rem;
   }
 }

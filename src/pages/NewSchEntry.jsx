@@ -78,7 +78,7 @@ function NewSchEntry() {
         NEW SCHOOLARSHIP FORM DATA
       </h2>
       <div className={styles["sch-form"]}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles["form-grid"]}>
             <div className={styles["fields-flex"]}>
               <div className={styles.formRow}>
@@ -95,15 +95,17 @@ function NewSchEntry() {
                 />
               </div>
               <div className={styles.formRow}>
-                <label>Renewal/Fresh:</label>
-                <select
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
+                <label>Last Name:</label>
+                <input
+                  type="text"
+                  required
                   className={styles.input}
-                >
-                  <option value={"Fresh"}>Fresh</option>
-                  <option value={"Renewal"}>Renewal</option>
-                </select>
+                  value={lastName}
+                  onChange={(e) => {
+                    const capitalizedFullName = capitalizeWords(e.target.value);
+                    setLastName(capitalizedFullName);
+                  }}
+                />
               </div>
 
               <div className={styles.formRow}>
@@ -125,17 +127,15 @@ function NewSchEntry() {
             </div>
             <div className={styles["fields-flex"]}>
               <div className={styles.formRow}>
-                <label>Last Name:</label>
-                <input
-                  type="text"
-                  required
+                <label>Renewal/Fresh:</label>
+                <select
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
                   className={styles.input}
-                  value={lastName}
-                  onChange={(e) => {
-                    const capitalizedFullName = capitalizeWords(e.target.value);
-                    setLastName(capitalizedFullName);
-                  }}
-                />
+                >
+                  <option value={"Fresh"}>Fresh</option>
+                  <option value={"Renewal"}>Renewal</option>
+                </select>
               </div>
               <div className={styles.formRow}>
                 <label>Class:</label>
