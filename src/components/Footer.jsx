@@ -8,8 +8,8 @@ import Logo from "./Logo";
 import Spinner from "./Spinner";
 import { useAuth } from "../context/authContext";
 
-const BASE_URL = "http://127.0.0.1:3000/api/v1/notification";
-// const BASE_URL = 'https://bccbackend.onrender.com/api/v1/notification'
+// const BASE_URL = "http://127.0.0.1:3000/api/v1/notification";
+const BASE_URL = "https://bccbackend.onrender.com/api/v1/notification";
 
 function Footer() {
   const form = useRef();

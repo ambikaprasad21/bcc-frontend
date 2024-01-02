@@ -14,8 +14,8 @@ import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 library.add(fab, faArrowRight, faEye, faEyeSlash);
 
-const BASE_URL = "http://127.0.0.1:3000/api/v1/auth/login";
-// const BASE_URL = 'https://bccbackend.onrender.com/api/v1/auth/login'
+// const BASE_URL = "http://127.0.0.1:3000/api/v1/auth/login";
+const BASE_URL = "https://bccbackend.onrender.com/api/v1/auth/login";
 
 function Login() {
   const [see, setSee] = useState(false);
