@@ -3,8 +3,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const SchContext = createContext();
 
-// const BASE_URL = "http://127.0.0.1:3000/api/v1";
-const BASE_URL = "https://bccbackend.onrender.com/api/v1";
+const BASE_URL = "http://127.0.0.1:3000/api/v1";
+// const BASE_URL = "https://bccbackend.onrender.com/api/v1";
 
 function SchProvider({ children }) {
   const [schData, setSchData] = useState([]);

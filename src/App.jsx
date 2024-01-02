@@ -7,9 +7,9 @@ import Admin from "./pages/Admin";
 import Schoolarship from "./pages/Schoolarship";
 import NewSchEntry from "./pages/NewSchEntry";
 import UpdateSchEntry from "./pages/UpdateSchEntry";
-import Main from "./pages/Main";
+import Hero from "./pages/Hero";
 import Login from "./pages/Login";
-import { AuthProvider } from "./context/authContext";
+import { AuthProvider, useAuth } from "./context/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import JobPage from "./job/JobPage";
 import NotifiPage from "./notification/NotifiPage";
@@ -18,6 +18,7 @@ import { NotifiProvider } from "./context/notifiContext";
 import { BreakNewsProvider } from "./context/breakNewsContext";
 import BreakingNewsPage from "./BreakingNews/BreakingNewsPage";
 import CreateNews from "./BreakingNews/CreateNews";
+import { useEffect } from "react";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Homepage />}>
-              <Route index element={<Main />} />
+              <Route index element={<Hero />} />
               <Route path="new/job" element={<JobPage />} />
               <Route
                 path="admin/dashboard"

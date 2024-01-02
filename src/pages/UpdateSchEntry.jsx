@@ -7,6 +7,9 @@ import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
 import Cancelbtn from "../components/Cancelbtn";
 
+const BASE_URL = "http://127.0.0.1:3000/api/v1";
+// const BASE_URL = 'https://bccbackend.onrender.com/api/v1'
+
 function UpdateSchEntry() {
   const { regno } = useParams();
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ function UpdateSchEntry() {
       try {
         setIsLoading(true);
         const res = await fetch(
-          `https://bccbackend.onrender.com/api/v1/schoolarship/getEntryByRegno/${regno}`,
+          `${BASE_URL}/schoolarship/getEntryByRegno/${regno}`,
           {
             credentials: "include",
             method: "GET",
@@ -79,17 +82,14 @@ function UpdateSchEntry() {
     try {
       setIsLoading(true);
       console.log(data);
-      const res = await fetch(
-        `https://bccbackend.onrender.com/api/v1/schoolarship/${data._id}`,
-        {
-          method: "PATCH",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...updatedData, date: startDate, DOB: dob }),
-        }
-      );
+      const res = await fetch(`${BASE_URL}/schoolarship/${data._id}`, {
+        method: "PATCH",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...updatedData, date: startDate, DOB: dob }),
+      });
       console.log(updatedData);
       if (!res.ok) {
         setError("There is some error uploading data try again");

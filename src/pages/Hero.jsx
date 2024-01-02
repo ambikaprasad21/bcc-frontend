@@ -2,10 +2,10 @@
 import Repair from "../components/Repair";
 import Timing from "../components/Timing";
 // import { useAuth } from "../context/authContext";
-import Carousal from "./../components/Carousal";
-import Services from "./../components/Services";
+import Carousal from "../components/Carousal";
+import Services from "../components/Services";
 
-function Main() {
+function Hero() {
   return (
     <>
       <Carousal />
@@ -16,4 +16,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Hero;

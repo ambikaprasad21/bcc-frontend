@@ -7,6 +7,9 @@ import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
 import Cancelbtn from "../components/Cancelbtn";
 
+const BASE_URL = "http://127.0.0.1:3000/api/v1/schoolarship";
+// const BASE_URL = "https://bccbackend.onrender.com/api/v1/schoolarship";
+
 function NewSchEntry() {
   const navigate = useNavigate();
   const [date, setDate] = useState(new Date());
@@ -33,29 +36,26 @@ function NewSchEntry() {
 
     try {
       setIsLoading(true);
-      const res = await fetch(
-        "https://bccbackend.onrender.com/api/v1/schoolarship",
-        {
-          method: "POST",
-          credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            firstname: firstName,
-            lastname: lastName,
-            registrationNo: regno,
-            type,
-            paid: payment,
-            charge: amount,
-            date,
-            DOB: dob,
-            class: division,
-            phone,
-            password,
-          }),
-        }
-      );
+      const res = await fetch(`${BASE_URL}`, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstname: firstName,
+          lastname: lastName,
+          registrationNo: regno,
+          type,
+          paid: payment,
+          charge: amount,
+          date,
+          DOB: dob,
+          class: division,
+          phone,
+          password,
+        }),
+      });
       if (!res.ok) {
         setError("There is some error uploading data try again");
       } else {
