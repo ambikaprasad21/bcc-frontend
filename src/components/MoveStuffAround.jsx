@@ -6,11 +6,17 @@ function MoveStuffAround({ news }) {
   return (
     <div className={styles["breaking-news-ticker"]}>
       <div className={styles["ticker-content"]}>
-        {news.map((item, index) => (
-          <div key={index} className={styles["news-item"]}>
-            <p>{item.news}</p>
+        {news.length === 0 ? (
+          <div className={styles["news-item"]}>
+            <p>Loading Latest Update...</p>
           </div>
-        ))}
+        ) : (
+          news.map((item, index) => (
+            <div key={index} className={styles["news-item"]}>
+              <p>{item.news}</p>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );
