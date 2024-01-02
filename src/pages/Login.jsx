@@ -18,7 +18,7 @@ function Login() {
   const [see, setSee] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState("false");
+  // const [redirect, setRedirect] = useState("false");
   const [loading, setLoading] = useState(false);
   const { isAuthenticated, setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -66,7 +66,7 @@ function Login() {
         setIsAuthenticated(true);
       }
 
-      setRedirect(true);
+      // setRedirect(true);
     } catch (err) {
       console.log("There is some error try again");
     } finally {
@@ -77,7 +77,7 @@ function Login() {
   useEffect(
     function () {
       if (isAuthenticated) {
-        navigate("/admin/dashboard?loginSuccess=true", { replace: true });
+        navigate("/?loginSuccess=true", { replace: true });
         //using the replace as true we are manupulating the history stack
       }
     },

@@ -8,7 +8,7 @@ function NotifiCard() {
 
   useEffect(() => {
     getNewNotifi();
-  }, []);
+  }, [getNewNotifi]);
   return (
     <Link
       to="/admin/dashboard/notifications"

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { useEffect } from "react";
 import MoveStuffAround from "../components/MoveStuffAround";
 import { useBreakNews } from "../context/breakNewsContext";
+import LoginToast from "../components/LoginToast";
 
 function Homepage() {
   const { breakNews, getBreakNews } = useBreakNews();
@@ -17,6 +18,7 @@ function Homepage() {
       <Header />
       <Outlet />
       <Footer />
+      <LoginToast />
     </>
   );
 }
