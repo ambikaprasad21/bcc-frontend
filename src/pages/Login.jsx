@@ -14,14 +14,11 @@ import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 library.add(fab, faArrowRight, faEye, faEyeSlash);
 
-// const BASE_URL = "http://127.0.0.1:3000/api/v1/auth/login";
-const BASE_URL = "https://bccbackend.onrender.com/api/v1/auth/login";
-
 function Login() {
   const [see, setSee] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  // const [redirect, setRedirect] = useState("false");
+  const [redirect, setRedirect] = useState("false");
   const [loading, setLoading] = useState(false);
   const { isAuthenticated, setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -34,14 +31,17 @@ function Login() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await fetch(`${BASE_URL}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-        credentials: "include",
-      });
+      const res = await fetch(
+        "https://bccbackend.onrender.com/api/v1/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       if (!res.ok) {
         toast.error(data.body.message, {
@@ -64,10 +64,9 @@ function Login() {
         return;
       } else {
         setIsAuthenticated(true);
-        // localStorage.setItem("authToken", data.token);
       }
 
-      // setRedirect(true);
+      setRedirect(true);
     } catch (err) {
       console.log("There is some error try again");
     } finally {
@@ -78,7 +77,7 @@ function Login() {
   useEffect(
     function () {
       if (isAuthenticated) {
-        navigate("/?loginSuccess=true", { replace: true });
+        navigate("/admin/dashboard?loginSuccess=true", { replace: true });
         //using the replace as true we are manupulating the history stack
       }
     },

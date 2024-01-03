@@ -8,7 +8,7 @@ function NotifiCard() {
 
   useEffect(() => {
     getNewNotifi();
-  }, [getNewNotifi]);
+  }, []);
   return (
     <Link
       to="/admin/dashboard/notifications"
@@ -24,8 +24,8 @@ function NotifiCard() {
           <p>BCC Notifications</p>
           <p>Message from contact us form</p>
         </div>
+        {open === 0 ? "" : <span className={styles["new-notifi"]}>{open}</span>}
       </div>
-      {open === 0 ? "" : <p className={styles["new-notifi"]}>{open}</p>}
     </Link>
   );
 }

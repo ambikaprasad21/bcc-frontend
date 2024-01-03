@@ -1,3 +1,87 @@
+/* .header {
+  background-color: #1381e2;
+  padding: 1rem 5rem;
+  color: #feffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.menu p {
+  color: #9accf8;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+  position: relative;
+}
+
+.menu p:hover {
+  color: #1640d6;
+}
+
+.menu p:hover::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  background: #0d1282;
+  position: absolute;
+  bottom: -5px;
+  left: 1px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 769px) {
+  .menu {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 2rem;
+    position: absolute;
+    top: 7.1rem;
+    right: -300px;
+    width: 200px;
+    height: 30vh;
+    background-color: #e4f1ff;
+    padding: 20px 0 0 10px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .menu.active {
+    right: 0;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .mobile i {
+    cursor: pointer;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 426px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  .menu {
+    width: 150px;
+  }
+} */
 .header {
   background-color: #1381e2;
   padding: 1rem 5rem;

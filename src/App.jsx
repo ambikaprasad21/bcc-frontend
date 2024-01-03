@@ -9,7 +9,7 @@ import NewSchEntry from "./pages/NewSchEntry";
 import UpdateSchEntry from "./pages/UpdateSchEntry";
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
-import { AuthProvider, useAuth } from "./context/authContext";
+import { AuthProvider } from "./context/authContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import JobPage from "./job/JobPage";
 import NotifiPage from "./notification/NotifiPage";
@@ -18,7 +18,6 @@ import { NotifiProvider } from "./context/notifiContext";
 import { BreakNewsProvider } from "./context/breakNewsContext";
 import BreakingNewsPage from "./BreakingNews/BreakingNewsPage";
 import CreateNews from "./BreakingNews/CreateNews";
-import { useEffect } from "react";
 
 function App() {
   return (

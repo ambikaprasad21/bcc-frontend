@@ -29,7 +29,7 @@ function BreakingNewsPage() {
             Create News
           </Link>
         </div>
-        <div className={styles["news-table"]}>
+        <div>
           <table className={styles.table}>
             <thead>
               <tr>

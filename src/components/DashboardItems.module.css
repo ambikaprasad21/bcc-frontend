@@ -1,3 +1,13 @@
+/* .dash-items {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-content: center;
+  justify-content: center;
+  row-gap: 2rem;
+  column-gap: 3rem;
+  width: 75%;
+  margin: 0 auto;
+} */
 .dash-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

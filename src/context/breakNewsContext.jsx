@@ -134,8 +134,8 @@ function BreakNewsProvider({ children }) {
     <BreakNewsContext.Provider
       value={{ breakNews, getBreakNews, createBreakNews, deleteBreakNews }}
     >
-      {children}
       <ToastContainer />
+      {children}
     </BreakNewsContext.Provider>
   );
 }

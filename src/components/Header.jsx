@@ -26,7 +26,7 @@ function Header() {
   };
 
   const closeMenu = () => {
-    setIsMenuOpen(false);
+    setIsMenuOpen((isMenuOpen) => !isMenuOpen);
   };
 
   return (

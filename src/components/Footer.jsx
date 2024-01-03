@@ -8,9 +8,6 @@ import Logo from "./Logo";
 import Spinner from "./Spinner";
 import { useAuth } from "../context/authContext";
 
-// const BASE_URL = "http://127.0.0.1:3000/api/v1/notification";
-const BASE_URL = "https://bccbackend.onrender.com/api/v1/notification";
-
 function Footer() {
   const form = useRef();
   const { contactForm } = useAuth();
@@ -37,13 +34,16 @@ function Footer() {
     try {
       setIsLoading(true);
       setError("");
-      const res = await fetch(`${BASE_URL}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, email, message }),
-      });
+      const res = await fetch(
+        "https://bccbackend.onrender.com/api/v1/notification",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
 
       if (!res.ok) {
         setError("Email Already Used, Try with different email");
