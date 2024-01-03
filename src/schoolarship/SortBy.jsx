@@ -7,11 +7,24 @@ library.add(fab, faMagnifyingGlass);
 
 import styles from "./SortBy.module.css";
 import { useSch } from "../context/SchContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function SortBy() {
   const { getSortedData, searchByName, searshByRegno } = useSch();
   const [name, setName] = useState("");
   const [regno, setRegno] = useState("");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   function capitalizeWords(str) {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
@@ -29,11 +42,12 @@ function SortBy() {
       </div>
       <div className={styles["search"]}>
         <div className={styles["search-area"]}>
-          <p>Search Entry By Name: </p>
+          {windowWidth > 491 ? <p>Search Entry By Name: </p> : null}
           <div className={styles["input-icon"]}>
             <input
               type="text"
               className={styles["find"]}
+              placeholder={windowWidth <= 491 ? "Search Entry By Name" : ""}
               value={name}
               onChange={(e) => {
                 // const lowercaseValue = e.target.value
@@ -54,11 +68,12 @@ function SortBy() {
           </div>
         </div>
         <div className={styles["search-area"]}>
-          <p>Search Entry By Reg.No:</p>
+          {windowWidth > 491 ? <p>Search Entry By Reg.No: </p> : null}
           <div className={styles["input-icon"]}>
             <input
               type="text"
               pattern="\d*"
+              placeholder={windowWidth <= 491 ? "Search Entry By Reg.No" : ""}
               inputMode="numeric"
               className={`${styles.find} ${styles["find-reg"]}`}
               value={regno}
