@@ -6,7 +6,7 @@ import { useEffect } from "react";
 function MoveStuffAround({ news }) {
   const [animDuration, setAnimeDuration] = useState(0);
   useEffect(() => {
-    setAnimeDuration(news.length % 10);
+    setAnimeDuration(news.length % 8);
   }, [news]);
   if (news.length === 0) return "";
   return (
