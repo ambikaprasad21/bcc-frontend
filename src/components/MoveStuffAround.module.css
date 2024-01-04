@@ -71,15 +71,15 @@
 .ticker-content {
   display: inline-block;
   animation: tickerMove linear infinite alternate;
-  animation-duration: 25s;
+  /* animation-duration: 25s; */
 }
 
 .news-item {
   display: inline-block;
   padding: 8px 16px;
   margin-right: 20px;
-  background-color: #1f1717;
-  color: #f4ce14;
+  /* background-color: #1f1717; */
+  color: red;
   font-weight: bold;
   font-size: 2rem;
   border-radius: 5px;

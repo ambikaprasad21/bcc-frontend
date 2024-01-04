@@ -93,6 +93,18 @@
   background-color: var(--primary-color);
   color: white;
   font-weight: 550;
+  cursor: pointer;
+}
+
+.connect-btn:hover {
+  border-radius: 5px;
+  outline-offset: 2px;
+  outline: 2px solid greenyellow;
+  background-color: #c1f2b0;
+}
+
+.connect-btn:active {
+  background-color: #c1f2b0;
 }
 
 .phone {

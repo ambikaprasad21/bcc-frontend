@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 function Carousal() {
   var settings = {
-    // dots: true,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -16,6 +16,13 @@ function Carousal() {
   return (
     <div className={styles.carousal}>
       <Slider {...settings}>
+        <div className={styles["carousel--img-div"]}>
+          <img
+            src="./../../images/banner-01.jpeg"
+            alt="banner"
+            className={`${styles["carousel-img"]} ${styles.banner}`}
+          />
+        </div>
         <div className={styles["carousel--img-div"]}>
           <img
             src="./../../images/carousal-4.jpg"

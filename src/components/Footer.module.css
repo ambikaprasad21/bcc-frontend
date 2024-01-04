@@ -179,6 +179,17 @@
   cursor: pointer;
 }
 
+.form-contact-btn:hover {
+  border-radius: 5px;
+  outline-offset: 2px;
+  outline: 2px solid greenyellow;
+  background-color: #c1f2b0;
+}
+
+.form-contact-btn:active {
+  background-color: #c1f2b0;
+}
+
 @media (max-width: 881px) {
   .footer {
     padding: 4rem 3rem;

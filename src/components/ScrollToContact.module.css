@@ -6,3 +6,14 @@
   font-weight: 550;
   cursor: pointer;
 }
+
+.service-btn:hover {
+  border-radius: 5px;
+  outline-offset: 2px;
+  outline: 2px solid greenyellow;
+  background-color: #c1f2b0;
+}
+
+.service-btn:active {
+  background-color: #c1f2b0;
+}
