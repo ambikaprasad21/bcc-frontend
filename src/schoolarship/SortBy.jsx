@@ -61,8 +61,10 @@ function SortBy() {
               icon={faMagnifyingGlass}
               className={styles["search-icon"]}
               onClick={() => {
-                searchByName(name);
-                setName("");
+                if (name.length >= 3) {
+                  searchByName(name);
+                  setName("");
+                }
               }}
             />
           </div>
@@ -85,8 +87,10 @@ function SortBy() {
               icon={faMagnifyingGlass}
               className={styles["search-icon"]}
               onClick={() => {
-                searshByRegno(regno);
-                setRegno("");
+                if (regno === null) {
+                  searshByRegno(regno);
+                  setRegno("");
+                }
               }}
             />
           </div>
