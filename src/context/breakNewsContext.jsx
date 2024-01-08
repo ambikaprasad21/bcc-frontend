@@ -35,7 +35,7 @@ function BreakNewsProvider({ children }) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ news: data }),
+        body: JSON.stringify(data),
       });
 
       if (!res.ok) {

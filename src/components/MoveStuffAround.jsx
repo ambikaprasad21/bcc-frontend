@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./MoveStuffAround.module.css";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function MoveStuffAround({ news }) {
   const [animDuration, setAnimeDuration] = useState(0);
@@ -17,7 +18,17 @@ function MoveStuffAround({ news }) {
       >
         {news.map((item, index) => (
           <div key={index} className={styles["news-item"]}>
-            <p>{item.news}</p>
+            <Link
+              to={item.link}
+              target="_blank"
+              style={{
+                textDecoration: "none",
+                color: "inherit" /* Inherit color from the parent */,
+                cursor: "pointer",
+              }}
+            >
+              <p>{item.news}</p>
+            </Link>
           </div>
         ))}
       </div>

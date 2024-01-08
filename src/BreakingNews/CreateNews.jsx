@@ -16,7 +16,7 @@ function CreateNews() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createBreakNews(news);
+    createBreakNews({ news, link });
     getBreakNews();
     setRedirect(true);
   };
