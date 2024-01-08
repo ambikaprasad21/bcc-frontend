@@ -12,6 +12,8 @@ function Carousal() {
     autoplay: true,
     autoplaySpeed: 2000,
     // pauseOnHover: false,
+    pauseOnFocus: true, // Pause autoplay when the carousel is focused (clicked/tapped)
+    pauseOnDotsHover: true, // Pause autoplay when the dots are hovered (for mobile touch interactions)
   };
   return (
     <div className={styles.carousal}>
