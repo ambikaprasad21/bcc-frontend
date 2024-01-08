@@ -14,7 +14,7 @@ function MoveStuffAround({ news }) {
     <div className={styles["breaking-news-ticker"]}>
       <div
         className={styles["ticker-content"]}
-        style={{ animationDuration: `${animDuration}s` }}
+        // style={{ animationDuration: `${animDuration}s` }}
       >
         {news.map((item, index) => (
           <div key={index} className={styles["news-item"]}>

@@ -71,7 +71,7 @@
 .ticker-content {
   display: inline-block;
   animation: tickerMove linear infinite alternate;
-  /* animation-duration: 25s; */
+  animation-duration: 25s;
 }
 
 .news-item {
