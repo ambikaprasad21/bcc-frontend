@@ -11,7 +11,7 @@ function Carousal() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    pauseOnHover: false,
+    // pauseOnHover: false,
   };
   return (
     <div className={styles.carousal}>

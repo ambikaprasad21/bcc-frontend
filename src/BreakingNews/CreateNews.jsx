@@ -6,6 +6,7 @@ import { useState } from "react";
 function CreateNews() {
   const navigate = useNavigate();
   const [news, setNews] = useState("");
+  const [link, setLink] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { createBreakNews, getBreakNews } = useBreakNews();
 
@@ -35,6 +36,17 @@ function CreateNews() {
               rows="5"
               value={news}
               onChange={(e) => setNews(e.target.value)}
+            />
+          </div>
+          <div className={styles.data}>
+            <label className={styles.label}>Enter Link:</label>
+            <textarea
+              type="text"
+              className={styles.input}
+              cols="40"
+              rows="2"
+              value={link}
+              onChange={(e) => setLink(e.target.value)}
             />
           </div>
           <button className={`${styles.btn} ${styles.create}`}>Create</button>
