@@ -37,7 +37,7 @@ function Admin() {
       <h2 className={styles["heading"]}>ADMIN DASHBOARD</h2>
       <div className={styles.admin}>
         <DashboardItems />
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </div>
     </>
   );
