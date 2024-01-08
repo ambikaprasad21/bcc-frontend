@@ -68,6 +68,10 @@
   margin: 0 auto;
 }
 
+.ticker-content:hover {
+  animation-play-state: paused;
+}
+
 .ticker-content {
   display: inline-block;
   animation: tickerMove linear infinite alternate;
