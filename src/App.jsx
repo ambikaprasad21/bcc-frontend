@@ -18,6 +18,8 @@ import { NotifiProvider } from "./context/notifiContext";
 import { BreakNewsProvider } from "./context/breakNewsContext";
 import BreakingNewsPage from "./BreakingNews/BreakingNewsPage";
 import CreateNews from "./BreakingNews/CreateNews";
+import CreateJob from "./job/CreateJob";
+import JobItem from "./job/JobItem";
 
 function App() {
   return (
@@ -28,6 +30,16 @@ function App() {
             <Route path="/" element={<Homepage />}>
               <Route index element={<Hero />} />
               <Route path="new/job" element={<JobPage />} />
+              <Route path="new/job/:id" element={<JobItem />} />
+
+              <Route
+                path="admin/dashboard/create/new/job/notification"
+                element={
+                  <ProtectedRoute>
+                    <CreateJob />
+                  </ProtectedRoute>
+                }
+              />
               <Route
                 path="admin/dashboard"
                 element={

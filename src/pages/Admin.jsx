@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import DashboardItems from "../components/DashboardItems";
 import styles from "./Admin.module.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 import { useSearchParams } from "react-router-dom";
 
