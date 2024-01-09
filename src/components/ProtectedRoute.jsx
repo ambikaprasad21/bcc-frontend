@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import { Redirect } from "react-router-dom";
 import { useEffect } from "react";
 
 function ProtectedRoute({ children }) {
@@ -13,7 +14,7 @@ function ProtectedRoute({ children }) {
     },
     [isAuthenticated, navigate]
   );
-  return isAuthenticated ? children : null;
+  return isAuthenticated ? children : <Redirect to="/" />;
 }
 
 export default ProtectedRoute;

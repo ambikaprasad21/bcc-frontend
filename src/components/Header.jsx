@@ -18,6 +18,7 @@ function Header() {
   // const [clicked, setClicked] = useState(false);
 
   const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
     setIsAuthenticated(false);
   };
 

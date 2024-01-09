@@ -64,6 +64,7 @@ function Login() {
         return;
       } else {
         setIsAuthenticated(true);
+        localStorage.setItem("isAuthenticated", "true");
       }
 
       setRedirect(true);
