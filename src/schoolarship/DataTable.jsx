@@ -14,48 +14,7 @@ library.add(fab, faPenToSquare, faTrashCan);
 
 function DataTable() {
   const navigate = useNavigate();
-  const [data, setData] = useState({
-    // heading: "Data table",
-    // doc: [
-    //   {
-    //     _id: 1,
-    //     firstname: "amit",
-    //     lastname: "kumar",
-    //     registrationNo: 45789212364896,
-    //     type: "renewal",
-    //     paid: true,
-    //     charge: 50,
-    //     date: "2023-12-25T00:00:00.000Z",
-    //     DOB: "2003-11-05T00:00:00.000Z",
-    //     class: "intermediate",
-    //     phone: 1245789632,
-    //     password: "test@1234",
-    //   },
-    //   {
-    //     _id: 2,
-    //     firstname: "prem",
-    //     lastname: "kumar",
-    //     registrationNo: 5212364998522,
-    //     type: "fresh",
-    //     paid: false,
-    //     charge: 50,
-    //     date: "2023-12-30T00:00:00.000Z",
-    //     DOB: "2003-11-05T00:00:00.000Z",
-    //     class: "intermediate",
-    //     phone: 1245789632,
-    //     password: "test@1234",
-    //   },
-    // ],
-  });
   const { schData, isLoading, deleteEntry, error } = useSch();
-
-  // useEffect(() => {
-  //   getSchData();
-  // }, []);
-
-  // console.log(schData);
-
-  // if (!schData) return <Spinner />;
   if (isLoading) return <Spinner />;
   if (error) return <p>{error}</p>;
   return (

@@ -3,16 +3,8 @@ import DataTable from "../schoolarship/DataTable";
 import SortBy from "../schoolarship/SortBy";
 import styles from "./Schoolarship.module.css";
 import { SchProvider } from "../context/SchContext";
-import { useEffect } from "react";
-import { useAuth } from "../context/authContext";
+
 function Schoolarship() {
-  const { offToast } = useAuth();
-  useEffect(
-    function () {
-      offToast();
-    },
-    [offToast]
-  );
   return (
     <SchProvider>
       <div className={styles.container}>
