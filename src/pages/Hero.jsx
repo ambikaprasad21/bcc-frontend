@@ -6,14 +6,6 @@ import Carousal from "../components/Carousal";
 import Services from "../components/Services";
 
 function Hero() {
-  const { offToast } = useAuth();
-
-  useEffect(
-    function () {
-      offToast();
-    },
-    [offToast]
-  );
   return (
     <>
       <Carousal />

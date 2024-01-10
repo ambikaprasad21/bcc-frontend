@@ -8,19 +8,12 @@ function AuthProvider({ children }) {
     localStorage.getItem("isAuthenticated") === "true"
   );
   const [contactForm, setContactForm] = useState(false);
-  const [showToast, setShowToast] = useState(true);
-
-  function offToast() {
-    setShowToast(false);
-  }
-
+  console.log(isAuthenticated);
   return (
     <AuthContext.Provider
       value={{
         isAuthenticated,
         setIsAuthenticated,
-        showToast,
-        offToast,
         contactForm,
         setContactForm,
       }}

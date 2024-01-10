@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -113,6 +113,7 @@ function App() {
               />
               <Route path="admin/login" element={<Login />} />
             </Route>
+            <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
       </BreakNewsProvider>

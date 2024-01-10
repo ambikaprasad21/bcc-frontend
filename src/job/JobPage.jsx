@@ -17,19 +17,6 @@ const BASE_URL = "https://bccbackend.onrender.com/api/v1/job";
 
 function JobPage() {
   const { isAuthenticated } = useAuth();
-  // const jobs = [
-  //   {
-  //     _id: 1,
-  //     heading: "up police 60000 new jobs",
-  //     last: "09-01-2024",
-  //   },
-  //   {
-  //     _id: 2,
-
-  //     heading: "up police 60000 new jobs",
-  //     last: "09-01-2024",
-  //   },
-  // ];
   const [jobs, setJobs] = useState([]);
   const [loaidng, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -78,8 +65,6 @@ function JobPage() {
     });
   };
   if (loaidng) return <Spinner />;
-  // if (jobs.length === 0)
-  //   return <p>There is no latest notification from Admin</p>;
   return (
     <div className={styles.section}>
       <div className={styles.container}>
