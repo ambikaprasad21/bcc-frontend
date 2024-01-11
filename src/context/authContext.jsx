@@ -5,7 +5,8 @@ const AuthContext = createContext();
 
 function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem("isAuthenticated") === "true"
+    // localStorage.getItem("isAuthenticated") === "true"
+    false
   );
   const [contactForm, setContactForm] = useState(false);
   console.log(isAuthenticated);
