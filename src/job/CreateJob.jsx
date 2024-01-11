@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./CreateJob.module.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import Spinner from "../components/Spinner";
+import LoadingSpin from "react-loading-spin";
+// import Spinner from "../components/Spinner";
+// import SpinnerMini from "../components/SpinnerMini";
 
 // const BASE_URL = "http://127.0.0.1:3000/api/v1/job";
 const BASE_URL = "https://bccbackend.onrender.com/api/v1/job";
@@ -118,7 +120,7 @@ function CreateJob() {
           placeholder="Write details of the Job"
         />
         <button className={styles.create} onClick={createJob}>
-          {loading ? <Spinner /> : "Create"}
+          {loading ? <LoadingSpin primaryColor="white" size={30} /> : "Create"}
         </button>
         {error && <p>{error}</p>}
       </div>
