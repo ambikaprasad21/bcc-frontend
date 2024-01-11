@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./CreateJob.module.css";
 import ReactQuill from "react-quill";
@@ -24,6 +24,7 @@ var toolbarOptions = [
   [{ color: [] }, { background: [] }], // dropdown with defaults from theme
   [{ font: [] }],
   [{ align: [] }],
+  ["link", "image", "video"],
 
   ["clean"], // remove formatting button
 ];
@@ -107,6 +108,7 @@ function CreateJob() {
           value={heading}
           onChange={(e) => setHeading(e.target.value)}
         />
+
         <ReactQuill
           modules={module}
           theme="snow"
