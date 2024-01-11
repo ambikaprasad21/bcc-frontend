@@ -97,27 +97,30 @@ function CreateJob() {
   };
 
   return (
-    <div className={styles.container}>
-      <input
-        type="text"
-        placeholder="Short Heading of Job"
-        className={styles.input}
-        value={heading}
-        onChange={(e) => setHeading(e.target.value)}
-      />
-      <ReactQuill
-        modules={module}
-        theme="snow"
-        value={job}
-        onChange={setJob}
-        style={quillStyles}
-        placeholder="Write details of the Job"
-      />
-      <button className={styles.create} onClick={createJob}>
-        {loading ? <Spinner /> : "Create"}
-      </button>
-      {error && <p>{error}</p>}
-    </div>
+    <>
+      <h1 className={styles.heading}>Create New Job</h1>
+      <div className={styles.container}>
+        <input
+          type="text"
+          placeholder="Short Heading of Job"
+          className={styles.input}
+          value={heading}
+          onChange={(e) => setHeading(e.target.value)}
+        />
+        <ReactQuill
+          modules={module}
+          theme="snow"
+          value={job}
+          onChange={setJob}
+          style={quillStyles}
+          placeholder="Write details of the Job"
+        />
+        <button className={styles.create} onClick={createJob}>
+          {loading ? <Spinner /> : "Create"}
+        </button>
+        {error && <p>{error}</p>}
+      </div>
+    </>
   );
 }
 

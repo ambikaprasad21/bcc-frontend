@@ -6,6 +6,15 @@
   gap: 4rem;
 }
 
+.heading {
+  text-align: center;
+  margin-top: 3rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid black;
+}
+
 .input {
   padding: 2.5rem 2rem;
   font-size: 1.5rem;
@@ -39,6 +48,17 @@
 .create:focus {
   outline-offset: 2px;
   outline: 3px solid green;
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 3rem 2rem;
+  }
+
+  .heading {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 /* .quill {
