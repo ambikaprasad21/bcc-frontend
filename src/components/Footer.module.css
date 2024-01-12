@@ -189,6 +189,19 @@
 .form-contact-btn:active {
   background-color: #c1f2b0;
 }
+.logo-review {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.review {
+  width: 100%;
+}
+
+.review img {
+  width: 80%;
+}
 
 @media (max-width: 881px) {
   .footer {
@@ -220,10 +233,14 @@
 @media (max-width: 636px) {
   .address {
     position: absolute;
-    top: 15rem;
+    top: 25rem;
   }
   .footer {
     gap: 17rem;
+  }
+
+  .review img {
+    width: 50%;
   }
 }
 
@@ -234,13 +251,22 @@
 }
 
 @media (max-width: 426px) {
+  .address h2 {
+    /* margin-top: 2rem; */
+    font-size: 1.8rem;
+  }
+
+  .contact h2 {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+  }
   .footer {
     flex-direction: column;
     gap: 28rem;
   }
 
   .address-item p:first-child {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     font-weight: 550;
   }
 
@@ -250,7 +276,7 @@
   }
 
   .address {
-    top: 13rem;
+    top: 39rem;
   }
 
   .contact {

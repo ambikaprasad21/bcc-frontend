@@ -100,8 +100,21 @@ function Footer() {
   return (
     <>
       <div className={styles.footer}>
-        <div>
+        <div className={styles["logo-review"]}>
           <Logo />
+          <div className={styles.review}>
+            <a
+              title="Customer reviews of bcccafe.vercel.app"
+              href="https://www.webwiki.com/bcccafe.vercel.app"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://www.webwiki.com/etc/rating/widget/1405789924/bcccafe-vercel-app-rating-full-180.png"
+                alt="Reviews of bcccafe.vercel.app"
+              />
+            </a>
+          </div>
         </div>
         <div className={styles["address"]}>
           <h2>Computer Center Address</h2>

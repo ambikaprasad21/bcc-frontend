@@ -9,7 +9,7 @@ function Repair() {
   return (
     <div className={styles.container}>
       <div className={styles.repair}>
-        <h2>Computer Repair And Servicing</h2>
+        <h1>Computer Repair And Servicing</h1>
         <p className={styles["repair-p"]}>
           We provide computer repair, service of old computer, windows
           installation. Get in touch for any

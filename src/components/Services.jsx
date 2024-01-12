@@ -17,7 +17,7 @@ function Services() {
   const { setContactForm } = useAuth();
   return (
     <div id="service" className={styles.services}>
-      <h2>Services We Provide</h2>
+      <h1>Services We Provide</h1>
       <div className={styles["service-list"]}>
         <div className={styles["service-item"]}>
           <FontAwesomeIcon icon={faFileInvoice} className={styles.icon} />
