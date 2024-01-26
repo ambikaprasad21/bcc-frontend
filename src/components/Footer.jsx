@@ -120,7 +120,7 @@ function Footer() {
           <h2>Computer Center Address</h2>
           <div className={styles["address-item"]}>
             <p>ADDRESS:</p>
-            <p>Shanti Nagar Banda(21001), Uttar Pradesh, India</p>
+            <p>Shanti Nagar Banda(210001), Uttar Pradesh, India</p>
           </div>
           <div className={styles["address-item"]}>
             <p>CALL:</p>
