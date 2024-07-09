@@ -18,7 +18,7 @@ function Repair() {
         <button className={styles["connect-btn"]}>Contact Us</button>
         <p className={styles.contact}>
           <FontAwesomeIcon icon={faPhoneVolume} className={styles.phone} />
-          +91 8090015182
+          +91 8009424184
         </p>
       </div>
     </div>

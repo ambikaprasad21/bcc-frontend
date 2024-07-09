@@ -124,7 +124,7 @@ function Footer() {
           </div>
           <div className={styles["address-item"]}>
             <p>CALL:</p>
-            <p>+91 8090015182</p>
+            <p>+91 8009424184</p>
           </div>
           <div className={styles["address-item"]}>
             <p>EMAIL ON:</p>
