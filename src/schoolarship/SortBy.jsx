@@ -42,7 +42,7 @@ function SortBy() {
       </div>
       <div className={styles["search"]}>
         <div className={styles["search-area"]}>
-          {windowWidth > 491 ? <p>Search Entry By Name: </p> : null}
+          {windowWidth > 491 ? <p>Search Entry By First Name: </p> : null}
           <div className={styles["input-icon"]}>
             <input
               type="text"
@@ -54,13 +54,14 @@ function SortBy() {
                 //   ? e.target.value.toLocaleLowerCase()
                 //   : "";
                 // console.log(lowercaseValue);
-                setName(capitalizeWords(e.target.value));
+                setName(e.target.value);
               }}
             />
             <FontAwesomeIcon
               icon={faMagnifyingGlass}
               className={styles["search-icon"]}
               onClick={() => {
+                console.log(name);
                 if (name.length >= 3) {
                   searchByName(name);
                   setName("");
@@ -87,7 +88,7 @@ function SortBy() {
               icon={faMagnifyingGlass}
               className={styles["search-icon"]}
               onClick={() => {
-                if (regno === null) {
+                if (regno !== null) {
                   searshByRegno(regno);
                   setRegno("");
                 }
