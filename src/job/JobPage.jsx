@@ -24,7 +24,7 @@ function JobPage() {
 
   const headerOptions = {
     "Content-Type": "application/json",
-    authorization: "Bearer " + token,
+    Authorization: "Bearer " + token,
   };
   useEffect(() => {
     async function getAllJob() {
@@ -55,16 +55,21 @@ function JobPage() {
   }, []);
 
   const handleDelete = async (id) => {
-    await fetch(`${BASE_URL}/${id}`, {
-      method: "DELETE",
-      credentials: "include",
-      headers: headerOptions,
-    });
+    const confirmDelete = window.confirm(
+      "Are you sure, you want to delete this job post?"
+    );
 
-    setJobs((prevData) => {
-      const updatedData = prevData.filter((entry) => entry._id !== id);
-      return updatedData;
-    });
+    if (confirmDelete) {
+      await fetch(`${BASE_URL}/${id}`, {
+        method: "DELETE",
+        headers: headerOptions,
+      });
+
+      setJobs((prevData) => {
+        const updatedData = prevData.filter((entry) => entry._id !== id);
+        return updatedData;
+      });
+    }
   };
   if (loaidng) return <Spinner />;
   return (

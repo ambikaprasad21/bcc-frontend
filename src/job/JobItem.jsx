@@ -32,7 +32,7 @@ function JobItem() {
 
   const headerOptions = {
     "Content-Type": "application/json",
-    authorization: "Bearer " + token,
+    Authorization: "Bearer " + token,
   };
   useEffect(() => {
     async function getJob() {

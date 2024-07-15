@@ -39,7 +39,7 @@ function Login() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ username, password }),
-          credentials: "include",
+          // credentials: "include",
         }
       );
       const data = await res.json();
@@ -63,10 +63,11 @@ function Login() {
         setLoading(false);
         return;
       } else {
+        console.log(data.token);
         setToken(data.token);
-        setIsAuthenticated(!!token);
+        setIsAuthenticated(data.token);
         // localStorage.setItem("isAuthenticated", "true");
-        localStorage.setItem("authToken", token);
+        localStorage.setItem("authToken", data.token);
       }
 
       setRedirect(true);

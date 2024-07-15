@@ -29,7 +29,7 @@ function NewSchEntry() {
 
   const headerOptions = {
     "Content-Type": "application/json",
-    authorization: "Bearer " + token,
+    Authorization: "Bearer " + token,
   };
 
   function capitalizeWords(str) {
@@ -45,7 +45,6 @@ function NewSchEntry() {
         "https://bccbackend.onrender.com/api/v1/schoolarship",
         {
           method: "POST",
-          credentials: "include",
           headers: headerOptions,
           body: JSON.stringify({
             firstname: firstName,

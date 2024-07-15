@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
 import { useAuth } from "./authContext";
+import { redirect } from "react-router-dom";
 
 const SchContext = createContext();
 
@@ -13,18 +14,22 @@ function SchProvider({ children }) {
   const [error, setError] = useState("");
   const { token } = useAuth();
 
-  const headerOptions = {
-    "Content-Type": "application/json",
-    authorization: "Bearer " + token,
-  };
+  const headerOptions = new Headers();
+  headerOptions.append("Content-Type", "application/json");
+  headerOptions.append("Authorization", `Bearer ${token}`);
+  // const headerOptions = {
+  //   "Content-Type": "application/json",
+  //   Authorization: "Bearer " + token,
+  // };
 
   async function getSchData() {
     try {
+      console.log(token);
       setIsLoading(true);
       const res = await fetch(`${BASE_URL}/schoolarship`, {
         method: "GET",
         headers: headerOptions,
-        credentials: "include",
+        // credentials: "include",
       });
 
       if (!res.ok) {
@@ -54,7 +59,7 @@ function SchProvider({ children }) {
     const res = await fetch(`${BASE_URL}/schoolarship/sort-by-${sortBy}`, {
       method: "GET",
       headers: headerOptions,
-      credentials: "include",
+      // credentials: "include",
     });
     const data = await res.json();
     setSchData(data.data);
@@ -69,7 +74,7 @@ function SchProvider({ children }) {
         {
           method: "GET",
           headers: headerOptions,
-          credentials: "include",
+          // credentials: "include",
         }
       );
       const data = await res.json();
@@ -89,7 +94,7 @@ function SchProvider({ children }) {
         {
           method: "GET",
           headers: headerOptions,
-          credentials: "include",
+          // credentials: "include",
         }
       );
       const data = await res.json();
@@ -111,7 +116,7 @@ function SchProvider({ children }) {
         await fetch(`${BASE_URL}/schoolarship/${id}`, {
           method: "DELETE",
           headers: headerOptions,
-          credentials: "include",
+          // credentials: "include",
         });
 
         setSchData((prevData) => {

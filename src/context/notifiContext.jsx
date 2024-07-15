@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useAuth } from "./authContext";
+import { useNavigate } from "react-router-dom";
 
 const NotifiContext = createContext();
 
@@ -14,16 +15,18 @@ function NotifiProvider({ children }) {
   const [error, setError] = useState("");
   const [notifiItem, setNotifiItem] = useState({});
   const { token } = useAuth();
+  const navigate = useNavigate();
 
   async function getNewNotifi() {
     const res = await fetch(`${BASE_URL}`, {
       method: "GET",
-      credentials: "include",
+      // credentials: "include",
       headers: {
         "Content-Type": "applicatoin/json",
-        authorization: "Bearer " + token,
+        Authorization: "Bearer " + token,
       },
     });
+    // console.log(token, "notification");
     const resData = await res.json();
     const count = resData.data.msg.reduce((acc, item) => {
       if (!item.read) {
@@ -41,15 +44,34 @@ function NotifiProvider({ children }) {
       setNotifiItem({});
       const res = await fetch(`${BASE_URL}`, {
         method: "GET",
-        credentials: "include",
+        // credentials: "include",
         headers: {
-          "Content-Type": "applicatoin/json",
-          authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
         },
       });
+
       if (!res.ok) {
+        const data = await res.json();
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: {
+            fontFamily: " sans-serif",
+            fontSize: "1.5rem",
+            fontWeight: 500,
+          },
+        });
+
         setError("There was some Error getting notification try again");
         setIsloading(false);
+        navigate("/admin/login", { replace: true });
         return;
       } else {
         const resData = await res.json();
@@ -71,11 +93,11 @@ function NotifiProvider({ children }) {
         setIsloading(true);
         setError("");
         const res = await fetch(`${BASE_URL}/${id}`, {
-          credentials: "include",
+          // credentials: "include",
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            authorization: "Bearer " + token,
+            Authorization: "Bearer " + token,
           },
         });
 
@@ -115,11 +137,11 @@ function NotifiProvider({ children }) {
       setIsloading(true);
       setError("");
       const res = await fetch(`${BASE_URL}/${id}`, {
-        credentials: "include",
+        // credentials: "include",
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          authorization: "Bearer " + token,
+          Authorization: "Bearer " + token,
         },
       });
       if (!res.ok) {

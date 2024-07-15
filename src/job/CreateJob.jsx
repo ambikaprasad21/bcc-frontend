@@ -45,7 +45,7 @@ function CreateJob() {
 
   const headerOptions = {
     "Content-Type": "application/json",
-    authorization: "Bearer " + token,
+    Authorization: "Bearer " + token,
   };
 
   const quillStyles = {
@@ -58,7 +58,6 @@ function CreateJob() {
       setError("");
       const res = await fetch(`${BASE_URL}`, {
         method: "POST",
-        credentials: "include",
         headers: headerOptions,
         body: JSON.stringify({ heading, detail: job }),
       });

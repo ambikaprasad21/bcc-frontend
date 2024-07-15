@@ -36,7 +36,7 @@ function BreakNewsProvider({ children }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          authorization: "Bearer " + token,
+          Authorization: "Bearer " + token,
         },
         body: JSON.stringify(data),
       });
@@ -89,6 +89,7 @@ function BreakNewsProvider({ children }) {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
         });
 

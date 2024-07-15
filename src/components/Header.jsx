@@ -2,24 +2,67 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { toast } from "react-toastify";
 
 library.add(fab, faArrowRightToBracket);
 
 import styles from "./Header.module.css";
 import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Link as ScrollLink } from "react-scroll";
 import { useAuth } from "../context/authContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+const BASE_URL = "https://bccbackend.onrender.com/api/v1/auth/getloggedinuser";
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { isAuthenticated, setIsAuthenticated, setContactForm } = useAuth();
+  const { token, isAuthenticated, setIsAuthenticated, setContactForm } =
+    useAuth();
+
+  const navigate = useNavigate();
   // const [clicked, setClicked] = useState(false);
 
+  useEffect(() => {
+    async function getLoggedInUser() {
+      const res = await fetch(`${BASE_URL}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          style: {
+            fontFamily: " sans-serif",
+            fontSize: "1.5rem",
+            fontWeight: 500,
+          },
+        });
+        setIsAuthenticated(null);
+        localStorage.removeItem("authToken");
+        navigate("/", { replace: true });
+      }
+    }
+
+    if (token) {
+      getLoggedInUser();
+    }
+  }, []);
+
   const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    setIsAuthenticated(false);
+    localStorage.removeItem("authToken");
+    setIsAuthenticated(null);
   };
 
   const toggleMenu = () => {

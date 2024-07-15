@@ -23,7 +23,7 @@ function UpdateSchEntry() {
 
   const headerOptions = {
     "Content-Type": "application/json",
-    authorization: "Bearer " + token,
+    Authorization: "Bearer " + token,
   };
 
   useEffect(() => {
@@ -33,7 +33,6 @@ function UpdateSchEntry() {
         const res = await fetch(
           `https://bccbackend.onrender.com/api/v1/schoolarship/getEntryByRegno/${regno}`,
           {
-            credentials: "include",
             method: "GET",
             headers: headerOptions,
           }

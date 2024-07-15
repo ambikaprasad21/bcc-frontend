@@ -4,7 +4,7 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("authToken"));
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("authToken")
   );
