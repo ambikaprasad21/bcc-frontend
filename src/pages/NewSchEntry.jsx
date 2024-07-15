@@ -6,6 +6,7 @@ import styles from "./NewSchEntry.module.css";
 import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
 import Cancelbtn from "../components/Cancelbtn";
+import { useAuth } from "../context/authContext";
 
 function NewSchEntry() {
   const navigate = useNavigate();
@@ -24,6 +25,13 @@ function NewSchEntry() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
+
   function capitalizeWords(str) {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
   }
@@ -38,9 +46,7 @@ function NewSchEntry() {
         {
           method: "POST",
           credentials: "include",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
           body: JSON.stringify({
             firstname: firstName,
             lastname: lastName,

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "./authContext";
 
 const BreakNewsContext = createContext();
 
@@ -7,6 +8,7 @@ const BreakNewsContext = createContext();
 const BASE_URL = "https://bccbackend.onrender.com/api/v1/breaking/news";
 function BreakNewsProvider({ children }) {
   const [breakNews, setBreakingNews] = useState([]);
+  const { token } = useAuth();
 
   async function getBreakNews() {
     try {
@@ -34,6 +36,7 @@ function BreakNewsProvider({ children }) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          authorization: "Bearer " + token,
         },
         body: JSON.stringify(data),
       });

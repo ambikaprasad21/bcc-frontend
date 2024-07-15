@@ -4,11 +4,12 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
+  const [token, setToken] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(
-    localStorage.getItem("isAuthenticated") === "true"
+    localStorage.getItem("authToken")
   );
   const [contactForm, setContactForm] = useState(false);
-  console.log(isAuthenticated);
+
   return (
     <AuthContext.Provider
       value={{
@@ -16,6 +17,8 @@ function AuthProvider({ children }) {
         setIsAuthenticated,
         contactForm,
         setContactForm,
+        token,
+        setToken,
       }}
     >
       {children}

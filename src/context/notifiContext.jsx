@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
+import { useAuth } from "./authContext";
 
 const NotifiContext = createContext();
 
@@ -12,6 +13,7 @@ function NotifiProvider({ children }) {
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState("");
   const [notifiItem, setNotifiItem] = useState({});
+  const { token } = useAuth();
 
   async function getNewNotifi() {
     const res = await fetch(`${BASE_URL}`, {
@@ -19,6 +21,7 @@ function NotifiProvider({ children }) {
       credentials: "include",
       headers: {
         "Content-Type": "applicatoin/json",
+        authorization: "Bearer " + token,
       },
     });
     const resData = await res.json();
@@ -41,6 +44,7 @@ function NotifiProvider({ children }) {
         credentials: "include",
         headers: {
           "Content-Type": "applicatoin/json",
+          authorization: "Bearer " + token,
         },
       });
       if (!res.ok) {
@@ -71,6 +75,7 @@ function NotifiProvider({ children }) {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
+            authorization: "Bearer " + token,
           },
         });
 
@@ -114,6 +119,7 @@ function NotifiProvider({ children }) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          authorization: "Bearer " + token,
         },
       });
       if (!res.ok) {

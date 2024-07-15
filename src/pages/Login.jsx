@@ -20,7 +20,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState("false");
   const [loading, setLoading] = useState(false);
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
+  const { token, setToken, isAuthenticated, setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   function handleSee() {
@@ -63,8 +63,10 @@ function Login() {
         setLoading(false);
         return;
       } else {
-        setIsAuthenticated(true);
-        localStorage.setItem("isAuthenticated", "true");
+        setToken(data.token);
+        setIsAuthenticated(!!token);
+        // localStorage.setItem("isAuthenticated", "true");
+        localStorage.setItem("authToken", token);
       }
 
       setRedirect(true);

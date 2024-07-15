@@ -3,6 +3,7 @@ import styles from "./JobItem.module.css";
 import { useEffect, useState } from "react";
 // import Loading from "react-loading";
 import Spinner from "../components/Spinner";
+import { useAuth } from "../context/authContext";
 
 // const BASE_URL = "http://127.0.0.1:3000/api/v1/job";
 const BASE_URL = "https://bccbackend.onrender.com/api/v1/job";
@@ -27,6 +28,12 @@ function JobItem() {
   const [data, setData] = useState({});
   const [loaidng, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
   useEffect(() => {
     async function getJob() {
       try {
@@ -34,9 +41,7 @@ function JobItem() {
         setError("");
         const res = await fetch(`${BASE_URL}/${id}`, {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
         });
 
         if (!res.ok) {

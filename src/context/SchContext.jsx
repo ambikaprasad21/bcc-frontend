@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useContext, useEffect, useState } from "react";
+import { useAuth } from "./authContext";
 
 const SchContext = createContext();
 
@@ -10,15 +11,19 @@ function SchProvider({ children }) {
   const [schData, setSchData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
 
   async function getSchData() {
     try {
       setIsLoading(true);
       const res = await fetch(`${BASE_URL}/schoolarship`, {
         method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: headerOptions,
         credentials: "include",
       });
 
@@ -48,9 +53,7 @@ function SchProvider({ children }) {
     setIsLoading(true);
     const res = await fetch(`${BASE_URL}/schoolarship/sort-by-${sortBy}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headerOptions,
       credentials: "include",
     });
     const data = await res.json();
@@ -65,9 +68,7 @@ function SchProvider({ children }) {
         `${BASE_URL}/schoolarship/getEntryByName/${name}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
           credentials: "include",
         }
       );
@@ -87,9 +88,7 @@ function SchProvider({ children }) {
         `${BASE_URL}/schoolarship/getEntryByRegno/${regno}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
           credentials: "include",
         }
       );
@@ -111,9 +110,7 @@ function SchProvider({ children }) {
         setIsLoading(true);
         await fetch(`${BASE_URL}/schoolarship/${id}`, {
           method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
           credentials: "include",
         });
 

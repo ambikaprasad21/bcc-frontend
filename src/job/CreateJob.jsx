@@ -4,6 +4,7 @@ import styles from "./CreateJob.module.css";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import LoadingSpin from "react-loading-spin";
+import { useAuth } from "../context/authContext";
 // import Spinner from "../components/Spinner";
 // import SpinnerMini from "../components/SpinnerMini";
 
@@ -40,6 +41,12 @@ function CreateJob() {
   const [heading, setHeading] = useState("");
   const [loading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
 
   const quillStyles = {
     // height: "300px",
@@ -52,9 +59,7 @@ function CreateJob() {
       const res = await fetch(`${BASE_URL}`, {
         method: "POST",
         credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: headerOptions,
         body: JSON.stringify({ heading, detail: job }),
       });
       if (!res.ok) {

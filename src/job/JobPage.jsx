@@ -20,6 +20,12 @@ function JobPage() {
   const [jobs, setJobs] = useState([]);
   const [loaidng, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
   useEffect(() => {
     async function getAllJob() {
       try {
@@ -27,9 +33,7 @@ function JobPage() {
         setError("");
         const res = await fetch(`${BASE_URL}`, {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: headerOptions,
         });
 
         if (!res.ok) {
@@ -54,9 +58,7 @@ function JobPage() {
     await fetch(`${BASE_URL}/${id}`, {
       method: "DELETE",
       credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: headerOptions,
     });
 
     setJobs((prevData) => {

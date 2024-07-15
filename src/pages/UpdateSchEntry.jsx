@@ -6,6 +6,7 @@ import styles from "./NewSchEntry.module.css";
 import SelectDate from "../components/SelectDate";
 import Spinner from "../components/Spinner";
 import Cancelbtn from "../components/Cancelbtn";
+import { useAuth } from "../context/authContext";
 
 function UpdateSchEntry() {
   const { regno } = useParams();
@@ -18,6 +19,12 @@ function UpdateSchEntry() {
   const [lastname, setLastName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const { token } = useAuth();
+
+  const headerOptions = {
+    "Content-Type": "application/json",
+    authorization: "Bearer " + token,
+  };
 
   useEffect(() => {
     async function getEntry() {
@@ -28,9 +35,7 @@ function UpdateSchEntry() {
           {
             credentials: "include",
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: headerOptions,
           }
         );
         if (!res.ok) {
