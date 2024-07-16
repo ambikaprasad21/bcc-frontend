@@ -63,7 +63,7 @@ function Login() {
         setLoading(false);
         return;
       } else {
-        console.log(data.token);
+        // console.log(data.token);
         setToken(data.token);
         setIsAuthenticated(data.token);
         // localStorage.setItem("isAuthenticated", "true");

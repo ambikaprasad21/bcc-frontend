@@ -24,7 +24,7 @@ function SchProvider({ children }) {
 
   async function getSchData() {
     try {
-      console.log(token);
+      // console.log(token);
       setIsLoading(true);
       const res = await fetch(`${BASE_URL}/schoolarship`, {
         method: "GET",
